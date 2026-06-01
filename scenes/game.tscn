@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bxuaaxvxuv5cv"]
 
 [ext_resource type="PackedScene" uid="uid://d0qsxl5ra6nui" path="res://scenes/player.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://buujo58ba0lbr" path="res://scenes/components/rope_attach.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bgmor4w06xkc5" path="res://scenes/anchor.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/rope.tscn" id="4_lbhrr"]
 
@@ -12,12 +11,10 @@ position = Vector2(0, -72)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=3078971]
 
-[node name="Rope" parent="Player" unique_id=1075735704 instance=ExtResource("4_lbhrr")]
-
-[node name="RopeAttach" parent="Player/Rope" unique_id=1252146343 node_paths=PackedStringArray("rope", "obj1", "obj2") instance=ExtResource("3_lbhrr")]
-rope = NodePath("..")
-obj1 = NodePath("../..")
-obj2 = NodePath("../../../Anchor")
-
 [node name="Anchor" parent="." unique_id=2015515689 instance=ExtResource("3_lnu2h")]
-position = Vector2(114, -198)
+position = Vector2(0, -198)
+
+[node name="Rope" parent="." unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2") instance=ExtResource("4_lbhrr")]
+position = Vector2(0, -198)
+obj1 = NodePath("../Player")
+obj2 = NodePath("../Anchor")

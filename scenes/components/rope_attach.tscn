@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://buujo58ba0lbr"]
-
-[ext_resource type="Script" uid="uid://cnltwp64nun8v" path="res://scripts/rope/rope_attach.gd" id="1_fkogs"]
-
-[node name="RopeAttach" type="Node2D" unique_id=1252146343]
-script = ExtResource("1_fkogs")

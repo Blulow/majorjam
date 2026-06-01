@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_gdjek")
 width = 16
 height = 16
 
-[node name="Anchor" type="Node2D" unique_id=2015515689 groups=["anchors"]]
+[node name="Anchor" type="StaticBody2D" unique_id=791452708]
 script = ExtResource("1_gdjek")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669435227]
