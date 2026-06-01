@@ -6,15 +6,15 @@
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
-[node name="Player" parent="." unique_id=477849407 instance=ExtResource("2_yqjtg")]
-position = Vector2(0, -72)
+[node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
+position = Vector2(-2, -64)
+zoom = Vector2(0.5, 0.5)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=3078971]
+[node name="Player" parent="." unique_id=477849407 instance=ExtResource("2_yqjtg")]
+position = Vector2(570, -71)
 
 [node name="Anchor" parent="." unique_id=2015515689 instance=ExtResource("3_lnu2h")]
-position = Vector2(0, -198)
 
 [node name="Rope" parent="." unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2") instance=ExtResource("4_lbhrr")]
-position = Vector2(0, -198)
 obj1 = NodePath("../Player")
 obj2 = NodePath("../Anchor")

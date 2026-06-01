@@ -6,17 +6,21 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const GRAVITY = 980.0
 
+var internal_vel: Vector2
+var external_vel: Vector2
+
 func _physics_process(delta: float) -> void:
 	if not body.is_on_floor():
-		body.velocity.y += GRAVITY * delta
+		internal_vel.y += GRAVITY * delta
 
 	if Input.is_action_just_pressed("jump") and body.is_on_floor():
-		body.velocity.y = JUMP_VELOCITY
+		internal_vel.y = JUMP_VELOCITY
 
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		body.velocity.x = direction * SPEED
+		internal_vel.x = direction * SPEED
 	else:
-		body.velocity.x = move_toward(body.velocity.x, 0, SPEED)
+		internal_vel.x = move_toward(internal_vel.x, 0, SPEED)
 
+	body.velocity = internal_vel + external_vel
 	body.move_and_slide()
