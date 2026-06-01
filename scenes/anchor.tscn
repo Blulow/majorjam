@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bgmor4w06xkc5"]
+
+[ext_resource type="Script" uid="uid://cj0or6ihyeq7g" path="res://scripts/anchor.gd" id="1_gdjek"]
+
+[sub_resource type="Gradient" id="Gradient_gdjek"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hs5qy"]
+gradient = SubResource("Gradient_gdjek")
+width = 16
+height = 16
+
+[node name="Anchor" type="Node2D" unique_id=2015515689 groups=["anchors"]]
+script = ExtResource("1_gdjek")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669435227]
+texture = SubResource("GradientTexture2D_hs5qy")

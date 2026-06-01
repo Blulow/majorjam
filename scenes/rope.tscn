@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bv44pj8q4xpe3"]
+
+[ext_resource type="Script" uid="uid://3q8pe12eka62" path="res://scripts/rope.gd" id="1_icxtj"]
+[ext_resource type="PackedScene" uid="uid://ccvjkjhj41m7v" path="res://scenes/components/rope_spring.tscn" id="2_ghbyf"]
+
+[node name="Rope" type="Line2D" unique_id=1075735704]
+script = ExtResource("1_icxtj")
+
+[node name="RopeSpring" parent="." unique_id=496788382 instance=ExtResource("2_ghbyf")]
