@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/rope.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bx112x7jc0xs2" path="res://scenes/spawners/enemy_spawner.tscn" id="7_gee14"]
+[ext_resource type="Script" uid="uid://ie2sruuvnn2a" path="res://scripts/wave_manager.gd" id="8_gee14"]
+[ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="9_vtaks"]
+[ext_resource type="Resource" uid="uid://bdlckvp1g8po0" path="res://assets/resources/wave_patterns/wave_1.tres" id="10_kvpfn"]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
@@ -40,3 +43,8 @@ gravity_scale = 0.0
 
 [node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("arena") instance=ExtResource("7_gee14")]
 arena = NodePath("../Arena")
+
+[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner")]
+script = ExtResource("8_gee14")
+wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn")])
+enemy_spawner = NodePath("../EnemySpawner")
