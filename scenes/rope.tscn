@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_au3ri"]
 [ext_resource type="Script" uid="uid://cwv5yf1rfqlxv" path="res://scripts/rope/sync_line.gd" id="6_5djw0"]
 
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_s222g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5djw0"]
 
 [node name="Rope" type="Node2D" unique_id=557276012]
 script = ExtResource("1_icxtj")
@@ -27,6 +27,6 @@ rope = NodePath("..")
 [node name="Hitbox" parent="." unique_id=941001317 instance=ExtResource("5_au3ri")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1382380902 node_paths=PackedStringArray("rope_line")]
-shape = SubResource("SegmentShape2D_s222g")
+shape = SubResource("RectangleShape2D_5djw0")
 script = ExtResource("6_5djw0")
 rope_line = NodePath("../../RopeLine")

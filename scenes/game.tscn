@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/rope.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="4_u5sy4"]
-[ext_resource type="Script" uid="uid://8nsgjva4bbuj" path="res://scripts/rope_end.gd" id="6_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bx112x7jc0xs2" path="res://scenes/spawners/enemy_spawner.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://bbsra1ldpwet7" path="res://scenes/enemy.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://10n5bnnir862" path="res://scenes/spawners/spawn_patterns/radial_spawn_pattern.tscn" id="8_gee14"]
@@ -40,7 +39,6 @@ obj2 = NodePath("../Anchor/RopeEnd")
 
 [node name="RopeEnd" type="RigidBody2D" parent="Arena/Anchor" unique_id=157808127]
 gravity_scale = 0.0
-script = ExtResource("6_vtaks")
 
 [node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("pattern", "enemy_target", "arena") instance=ExtResource("7_gee14")]
 pattern = NodePath("RadialSpawnPattern")

@@ -6,7 +6,7 @@ class_name Hurtbox
 
 var damage_amount: float
 var hit: bool = false
-var timer: float = 0.0
+@onready var timer: float = hit_cooldown
 
 func _process(delta: float) -> void:
 	if timer < hit_cooldown:
