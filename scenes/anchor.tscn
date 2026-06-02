@@ -16,7 +16,7 @@ height = 16
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lm60w"]
-size = Vector2(16, 16)
+size = Vector2(18, 18)
 
 [node name="Anchor" type="StaticBody2D" unique_id=791452708]
 collision_layer = 6
