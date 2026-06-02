@@ -12,7 +12,12 @@ var target: Node2D
 
 func _ready() -> void:
 	target = body.target
-	dir = body.global_position.direction_to(target.global_position)
 
 func _physics_process(delta: float) -> void:
+	dir = body.global_position.direction_to(target.global_position)
+	
+	for i in body.get_slide_collision_count():
+		if body.get_slide_collision(i).get_collider() == target:
+			return
+	
 	body_controller.internal_vel = dir * speed

@@ -8,7 +8,15 @@ gradient = SubResource("Gradient_gdjek")
 width = 16
 height = 16
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k6ed"]
+size = Vector2(16, 16)
+
 [node name="Anchor" type="StaticBody2D" unique_id=791452708]
+collision_layer = 2
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669435227]
 texture = SubResource("GradientTexture2D_hs5qy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=212469592]
+shape = SubResource("RectangleShape2D_1k6ed")
