@@ -6,7 +6,7 @@ signal hit
 
 @export var max_health: float = 10.0
 @export var invincible: bool = false
-var health: float = max_health
+@onready var health: float = max_health
 
 func damage(amount: float) -> void:
 	if invincible: return

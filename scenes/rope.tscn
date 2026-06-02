@@ -25,6 +25,7 @@ rope = NodePath("..")
 rope = NodePath("..")
 
 [node name="Hitbox" parent="." unique_id=941001317 instance=ExtResource("5_au3ri")]
+damage_amount = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1382380902 node_paths=PackedStringArray("rope_line")]
 shape = SubResource("RectangleShape2D_5djw0")

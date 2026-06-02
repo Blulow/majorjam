@@ -19,10 +19,10 @@ height = 32
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
 size = Vector2(32, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(32, 32)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1084182467 groups=["enemy"]]
@@ -48,6 +48,14 @@ body_controller = NodePath("../BodyController")
 rect = Rect2(-23, -23, 46, 46)
 script = ExtResource("4_5uy6h")
 
+[node name="Hitbox" parent="." unique_id=504625708 instance=ExtResource("7_nenq2")]
+collision_layer = 4
+collision_mask = 4
+damage_amount = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=329620180]
+shape = SubResource("RectangleShape2D_md484")
+
 [node name="Health" parent="." unique_id=509010372 instance=ExtResource("5_xwavj")]
 
 [node name="Hurtbox" parent="." unique_id=941001317 node_paths=PackedStringArray("health") instance=ExtResource("6_nenq2")]
@@ -55,13 +63,6 @@ health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1101894523]
 shape = SubResource("RectangleShape2D_xwavj")
-
-[node name="Hitbox" parent="." unique_id=504625708 instance=ExtResource("7_nenq2")]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=329620180]
-shape = SubResource("RectangleShape2D_md484")
 
 [node name="HealthBar" parent="." unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("8_n7575")]
 health = NodePath("../Health")

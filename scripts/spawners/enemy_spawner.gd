@@ -28,8 +28,8 @@ func spawn_enemies(enemy_scene: PackedScene, count: int, spawn_pattern: SpawnPat
 		var enemy: Enemy = enemy_scene.instantiate()
 		enemy.target = get_tree().current_scene.get_node(target)
 		enemy.global_position = i
-		enemy.get_node("Health").health *= stat_modifier.health_modifier
-		enemy.get_node("Hitbox").damage_amount *= stat_modifier.damage_modifier
+		enemy.get_node("Health").health *= stat_modifier.health_modifier + 1
+		enemy.get_node("Hitbox").damage_amount *= stat_modifier.damage_modifier + 1
 		arena.add_child(enemy)
 
 func weighted_rand(items: Array, weights: Array):
