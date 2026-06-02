@@ -4,6 +4,8 @@ class_name WaveManager
 @export var wave_patterns: Array[WavePattern]
 @export var enemy_spawner: EnemySpawner
 
+signal wave_start(wave_n)
+
 var wave_pattern: WavePattern
 var wave_n: int
 var active: bool
@@ -32,3 +34,5 @@ func start_wave(_wave_pattern: WavePattern):
 	enemy_spawner.pool = wave_pattern.pool
 	enemy_spawner.stat_modifier = wave_pattern.stat_modifier
 	enemy_spawner.active = active
+	
+	wave_start.emit(wave_n)

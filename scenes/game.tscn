@@ -10,11 +10,21 @@
 [ext_resource type="Script" uid="uid://ie2sruuvnn2a" path="res://scripts/wave_manager.gd" id="8_gee14"]
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="9_vtaks"]
 [ext_resource type="Resource" uid="uid://bdlckvp1g8po0" path="res://assets/resources/wave_patterns/wave_1.tres" id="10_kvpfn"]
+[ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/game_menu.gd" id="11_kvpfn"]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("wave_manager")]
+script = ExtResource("11_kvpfn")
+wave_manager = NodePath("../WaveManager")
+
+[node name="WaveLabel" type="Label" parent="CanvasLayer" unique_id=1563016323]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Wave: 9999"
 
 [node name="Arena" type="Node2D" parent="." unique_id=1321402845]
 
