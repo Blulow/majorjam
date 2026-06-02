@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bv44pj8q4xpe3"]
 
 [ext_resource type="Script" uid="uid://3q8pe12eka62" path="res://scripts/rope/rope.gd" id="1_icxtj"]
-[ext_resource type="PackedScene" uid="uid://ccvjkjhj41m7v" path="res://scenes/components/rope_spring.tscn" id="2_ghbyf"]
+[ext_resource type="PackedScene" uid="uid://ccvjkjhj41m7v" path="res://scenes/components/rope/rope_spring.tscn" id="2_ghbyf"]
 [ext_resource type="Script" uid="uid://x2vg5dawig73" path="res://scripts/rope/rope_line.gd" id="3_vlfmi"]
-[ext_resource type="PackedScene" uid="uid://cddmklcnwb7mx" path="res://scenes/components/rope_reel.tscn" id="4_l37dg"]
+[ext_resource type="PackedScene" uid="uid://cddmklcnwb7mx" path="res://scenes/components/rope/rope_reel.tscn" id="4_l37dg"]
 
 [node name="Rope" type="Node2D" unique_id=557276012]
 script = ExtResource("1_icxtj")

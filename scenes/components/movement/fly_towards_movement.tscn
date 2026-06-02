@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://1aobupq5yn68"]
+
+[ext_resource type="Script" uid="uid://d11girlnvfb8u" path="res://scripts/movement/fly_towards_movement.gd" id="1_0offj"]
+
+[node name="FlyTowardsMovement" type="Node2D" unique_id=117864476]
+script = ExtResource("1_0offj")

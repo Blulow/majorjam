@@ -1,34 +1,51 @@
 [gd_scene format=3 uid="uid://bxuaaxvxuv5cv"]
 
-[ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/rope_dash_movement.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/movement/rope_dash_movement.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d0qsxl5ra6nui" path="res://scenes/player.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://bgmor4w06xkc5" path="res://scenes/anchor.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/body_controller.tscn" id="3_p57ef"]
+[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/rope.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/controlled_movement.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bx112x7jc0xs2" path="res://scenes/spawners/enemy_spawner.tscn" id="7_gee14"]
+[ext_resource type="PackedScene" uid="uid://bbsra1ldpwet7" path="res://scenes/enemy.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://10n5bnnir862" path="res://scenes/spawners/spawn_patterns/radial_spawn_pattern.tscn" id="8_gee14"]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
-position = Vector2(-2, -64)
 zoom = Vector2(0.5, 0.5)
 
-[node name="Player" parent="." unique_id=477849407 instance=ExtResource("2_yqjtg")]
+[node name="Arena" type="Node2D" parent="." unique_id=1321402845]
+
+[node name="Player" parent="Arena" unique_id=477849407 instance=ExtResource("2_yqjtg")]
 position = Vector2(570, -71)
 
-[node name="RopeDashMovement" parent="Player" unique_id=1115222186 node_paths=PackedStringArray("rope", "body_controller") instance=ExtResource("2_lbhrr")]
+[node name="RopeDashMovement" parent="Arena/Player" unique_id=1115222186 node_paths=PackedStringArray("rope", "body_controller") instance=ExtResource("2_lbhrr")]
 rope = NodePath("../../Rope")
 body_controller = NodePath("../BodyController")
 
-[node name="BodyController" parent="Player" unique_id=22720870 node_paths=PackedStringArray("body") instance=ExtResource("3_p57ef")]
+[node name="BodyController" parent="Arena/Player" unique_id=22720870 node_paths=PackedStringArray("body") instance=ExtResource("3_p57ef")]
 body = NodePath("..")
 
-[node name="ControlledMovement" parent="Player" unique_id=935498531 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("4_u5sy4")]
+[node name="ControlledMovement" parent="Arena/Player" unique_id=935498531 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("4_u5sy4")]
 body = NodePath("..")
 body_controller = NodePath("../BodyController")
 
-[node name="Anchor" parent="." unique_id=2015515689 instance=ExtResource("3_lnu2h")]
-
-[node name="Rope" parent="." unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2") instance=ExtResource("4_lbhrr")]
+[node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2") instance=ExtResource("4_lbhrr")]
 obj1 = NodePath("../Player")
 obj2 = NodePath("../Anchor")
+
+[node name="Anchor" parent="Arena" unique_id=2015515689 instance=ExtResource("3_lnu2h")]
+
+[node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("pattern", "enemy_target", "arena") instance=ExtResource("7_gee14")]
+pattern = NodePath("RadialSpawnPattern")
+interval = 1.0
+count = 10
+enemy_scene = ExtResource("7_u5sy4")
+enemy_target = NodePath("../Arena/Anchor")
+arena = NodePath("../Arena")
+
+[node name="RadialSpawnPattern" parent="EnemySpawner" unique_id=688648492 node_paths=PackedStringArray("origin") instance=ExtResource("8_gee14")]
+origin = NodePath("../../Arena/Anchor")
+min_radius = 800.0
+max_radius = 900.0

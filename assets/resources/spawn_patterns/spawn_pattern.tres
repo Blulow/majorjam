@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SpawnPattern" format=3 uid="uid://jxwy2y5o4r4g"]
+
+[ext_resource type="Script" uid="uid://cgd0ohg6xvpa" path="res://scripts/spawners/spawn_patterns/spawn_pattern.gd" id="1_ft1l5"]
+
+[resource]
+script = ExtResource("1_ft1l5")

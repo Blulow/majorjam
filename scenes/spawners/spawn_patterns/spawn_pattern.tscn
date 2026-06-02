@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c7vocahift6li"]
+
+[ext_resource type="Script" uid="uid://cgd0ohg6xvpa" path="res://scripts/spawners/spawn_patterns/spawn_pattern.gd" id="1_b11sn"]
+
+[node name="SpawnPattern" type="Node2D" unique_id=688648492]
+script = ExtResource("1_b11sn")

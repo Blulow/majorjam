@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bbsra1ldpwet7"]
+
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="3_5uy6h"]
+[ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_5uy6h"]
+
+[sub_resource type="Gradient" id="Gradient_g2els"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8tegq"]
+gradient = SubResource("Gradient_g2els")
+width = 32
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+size = Vector2(32, 32)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_4ra3w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129537266]
+texture = SubResource("GradientTexture2D_8tegq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088048531]
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="BodyController" parent="." unique_id=22720870 node_paths=PackedStringArray("body") instance=ExtResource("1_7p1mj")]
+body = NodePath("..")
+gravity_on = false
+
+[node name="FlyTowardsMovement" parent="." unique_id=117864476 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("3_5uy6h")]
+body = NodePath("..")
+body_controller = NodePath("../BodyController")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2053085264]
+rect = Rect2(-23, -23, 46, 46)
+script = ExtResource("4_5uy6h")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
