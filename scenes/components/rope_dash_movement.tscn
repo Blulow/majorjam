@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqqj4v0fa56nd"]
+
+[ext_resource type="Script" uid="uid://bx1q378a85ix4" path="res://scripts/movement/rope_dash_movement.gd" id="1_ift0w"]
+
+[node name="RopeDashMovement" type="Node2D" unique_id=1115222186]
+script = ExtResource("1_ift0w")

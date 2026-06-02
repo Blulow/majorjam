@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drnmq1qbgf1m6"]
 
-[ext_resource type="Script" uid="uid://jk6uweicv0jm" path="res://scripts/player/controlled_movement.gd" id="1_xfhd5"]
+[ext_resource type="Script" uid="uid://jk6uweicv0jm" path="res://scripts/movement/controlled_movement.gd" id="1_xfhd5"]
 
 [node name="ControlledMovement" type="Node2D" unique_id=935498531]
 script = ExtResource("1_xfhd5")

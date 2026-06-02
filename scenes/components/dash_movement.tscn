@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2fsyemj6pcng"]
+
+[ext_resource type="Script" uid="uid://coxmrsob2yl6t" path="res://scripts/movement/dash_movement.gd" id="1_i0w8y"]
+
+[node name="DashMovement" type="Node2D" unique_id=1115222186]
+script = ExtResource("1_i0w8y")

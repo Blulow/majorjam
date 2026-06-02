@@ -10,6 +10,8 @@ script = ExtResource("1_icxtj")
 
 [node name="RopeSpring" parent="." unique_id=496788382 node_paths=PackedStringArray("rope") instance=ExtResource("2_ghbyf")]
 rope = NodePath("..")
+spring_strength = 50.0
+damping = 10.0
 
 [node name="RopeLine" type="Line2D" parent="." unique_id=1691879384 node_paths=PackedStringArray("rope")]
 script = ExtResource("3_vlfmi")

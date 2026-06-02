@@ -1,6 +1,6 @@
 extends Line2D
 
-@export var rope: Node2D
+@export var rope: Rope
 
 func _process(delta: float) -> void:
 	points = [

@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var rope: Node2D
-@export var spring_strength: float = 10
-@export var damping : float = 2
+@export var rope: Rope
+@export var spring_strength: float = 10.0
+@export var damping : float = 5.0
 
 func _physics_process(delta: float) -> void:
 	if rope.obj1 == null or rope.obj2 == null: return
@@ -26,3 +26,4 @@ func apply_force(a: PhysicsAdapter, b: PhysicsAdapter, delta: float) -> void:
 	var damp = -damping * vel_dot
 	var force = dir * (spring + damp)
 	a.add_velocity(force * delta)
+	b.add_velocity(-force * delta)

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6p35ilxarqkx"]
+
+[ext_resource type="Script" uid="uid://csltq2jj1kmua" path="res://scripts/movement/body_controller.gd" id="1_swukc"]
+
+[node name="BodyController" type="Node2D" unique_id=22720870]
+script = ExtResource("1_swukc")
