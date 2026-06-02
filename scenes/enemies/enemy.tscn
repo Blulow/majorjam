@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="5_xwavj"]
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="6_nenq2"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="7_nenq2"]
+[ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_n7575"]
 
 [sub_resource type="Gradient" id="Gradient_g2els"]
 
@@ -24,7 +25,7 @@ size = Vector2(32, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
 size = Vector2(32, 32)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1084182467]
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4ra3w")
@@ -61,6 +62,9 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=329620180]
 shape = SubResource("RectangleShape2D_md484")
+
+[node name="HealthBar" parent="." unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("8_n7575")]
+health = NodePath("../Health")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

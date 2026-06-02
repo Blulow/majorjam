@@ -3,6 +3,7 @@ class_name BodyController
 
 @export var body: CharacterBody2D
 @export var gravity_on: bool = true
+@export var max_velocity: float = 1000.0
 
 const GRAVITY = 980.0
 
@@ -13,5 +14,6 @@ func _physics_process(delta: float) -> void:
 	if not body.is_on_floor() and gravity_on:
 		external_vel.y += GRAVITY * delta
 	
-	body.velocity = internal_vel + external_vel
+	var total_vel: Vector2 = internal_vel + external_vel
+	body.velocity = total_vel
 	body.move_and_slide()

@@ -1,4 +1,4 @@
-extends Node2D
+extends Resource
 class_name SpawnPattern
 
 func get_spawn_positions(count: int = 1, context: Dictionary = {}) -> Array[Vector2]:

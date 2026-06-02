@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://bdlckvp1g8po0"]
+
+[ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_yx1ic"]
+[ext_resource type="PackedScene" uid="uid://bbsra1ldpwet7" path="res://scenes/enemies/enemy.tscn" id="2_1d8wg"]
+[ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="3_1d8wg"]
+[ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="3_pblcy"]
+[ext_resource type="Script" uid="uid://bvhhsyy2ad1we" path="res://scripts/wave_patterns/stat_modifier.gd" id="4_o3gj1"]
+
+[sub_resource type="Resource" id="Resource_1d8wg"]
+script = ExtResource("3_1d8wg")
+
+[sub_resource type="Resource" id="Resource_pblcy"]
+script = ExtResource("1_yx1ic")
+enemy_scene = ExtResource("2_1d8wg")
+weight = 100.0
+count = 10
+target = NodePath("Arena/Anchor")
+spawn_pattern = SubResource("Resource_1d8wg")
+metadata/_custom_type_script = "uid://di2kw8ergkm2g"
+
+[sub_resource type="Resource" id="Resource_o3gj1"]
+script = ExtResource("4_o3gj1")
+metadata/_custom_type_script = "uid://bvhhsyy2ad1we"
+
+[resource]
+script = ExtResource("3_pblcy")
+wave_n = 1
+duration = 10.0
+interval = 1.0
+enemy_cap = 100
+pool = Array[ExtResource("1_yx1ic")]([SubResource("Resource_pblcy")])
+stat_modifier = SubResource("Resource_o3gj1")
+metadata/_custom_type_script = "uid://evrwgbfuh4eb"

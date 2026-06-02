@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="1_hs5qy"]
 [ext_resource type="Script" uid="uid://sgq8bits1eff" path="res://scripts/anchor.gd" id="1_ua340"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="2_ua340"]
+[ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="4_lm60w"]
 
 [sub_resource type="Gradient" id="Gradient_gdjek"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -38,6 +39,9 @@ health = NodePath("../Health")
 shape = SubResource("RectangleShape2D_lm60w")
 
 [node name="Health" parent="." unique_id=509010372 instance=ExtResource("2_ua340")]
-health = 50.0
+max_health = 30.0
+
+[node name="HealthBar" parent="." unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("4_lm60w")]
+health = NodePath("../Health")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]

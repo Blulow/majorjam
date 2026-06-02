@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://10n5bnnir862"]
-
-[ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="1_xksj2"]
-
-[node name="RadialSpawnPattern" type="Node2D" unique_id=688648492]
-script = ExtResource("1_xksj2")

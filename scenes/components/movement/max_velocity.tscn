@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cxg511mogc0m2"]
+
+[ext_resource type="Script" uid="uid://jsxggldo7lus" path="res://scripts/movement/max_velocity.gd" id="1_usdw5"]
+
+[node name="MaxVelocity" type="Node2D" unique_id=1731242688]
+script = ExtResource("1_usdw5")
