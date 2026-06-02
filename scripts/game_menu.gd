@@ -11,8 +11,12 @@ extends CanvasLayer
 
 func _ready() -> void:
 	wave_manager.wave_start.connect(_on_wave_start)
+	anchor.hit.connect(_on_hit)
 
 func _on_wave_start(wave_n: int):
 	wave_label.text = "Wave: " + str(wave_n)
 	health_label.text = "Health: " + str(anchor.get_node("Health").health)
 	damage_label.text = "Damage: " + str(rope.get_node("Hitbox").damage_amount)
+
+func _on_hit():
+	health_label.text = "Health: " + str(anchor.get_node("Health").health)

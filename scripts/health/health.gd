@@ -11,8 +11,9 @@ signal hit
 func damage(amount: float) -> void:
 	if invincible: return
 	health -= amount
-	hit.emit()
 	
 	if health <= 0:
 		health = 0
 		died.emit()
+	
+	hit.emit()
