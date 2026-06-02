@@ -45,3 +45,4 @@ shape = SubResource("RectangleShape2D_lm60w")
 health = NodePath("../Health")
 
 [connection signal="died" from="Health" to="." method="_on_health_died"]
+[connection signal="hit" from="Health" to="." method="_on_health_hit"]

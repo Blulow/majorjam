@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Build" format=3 uid="uid://dxr7wacyawqql"]
+
+[ext_resource type="Script" uid="uid://bhpno1aow3pps" path="res://scripts/build/build_effects/build_effect.gd" id="1_q1urd"]
+[ext_resource type="Script" uid="uid://daelugdpvf7sv" path="res://scripts/build/build.gd" id="2_8wxjd"]
+[ext_resource type="Script" uid="uid://w11si1m6ucay" path="res://scripts/build/build_effects/attack_modifier.gd" id="2_uj08s"]
+
+[sub_resource type="Resource" id="Resource_tjw3m"]
+script = ExtResource("2_uj08s")
+modifier = 0.5
+metadata/_custom_type_script = "uid://w11si1m6ucay"
+
+[resource]
+script = ExtResource("2_8wxjd")
+effects = Array[ExtResource("1_q1urd")]([SubResource("Resource_tjw3m")])
+metadata/_custom_type_script = "uid://daelugdpvf7sv"

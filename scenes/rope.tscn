@@ -31,3 +31,5 @@ damage_amount = 10.0
 shape = SubResource("RectangleShape2D_5djw0")
 script = ExtResource("6_5djw0")
 rope_line = NodePath("../../RopeLine")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

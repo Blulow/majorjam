@@ -3,6 +3,7 @@ class_name WaveManager
 
 @export var wave_patterns: Array[WavePattern]
 @export var enemy_spawner: EnemySpawner
+@export var build_applier: BuildApplier
 
 signal wave_start(wave_n)
 
@@ -34,5 +35,7 @@ func start_wave(_wave_pattern: WavePattern):
 	enemy_spawner.pool = wave_pattern.pool
 	enemy_spawner.stat_modifier = wave_pattern.stat_modifier
 	enemy_spawner.active = active
+	
+	build_applier.apply_build(preload("res://assets/resources/builds/health_boost.tres"))
 	
 	wave_start.emit(wave_n)

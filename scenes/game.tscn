@@ -11,20 +11,44 @@
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="9_vtaks"]
 [ext_resource type="Resource" uid="uid://bdlckvp1g8po0" path="res://assets/resources/wave_patterns/wave_1.tres" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/game_menu.gd" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://clofs0ee5j5n6" path="res://scenes/components/build/build_applier.tscn" id="12_kvuet"]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("wave_manager")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("wave_manager", "anchor", "rope", "player")]
 script = ExtResource("11_kvpfn")
 wave_manager = NodePath("../WaveManager")
+anchor = NodePath("../Arena/Anchor")
+rope = NodePath("../Arena/Rope")
+player = NodePath("../Arena/Player")
 
 [node name="WaveLabel" type="Label" parent="CanvasLayer" unique_id=1563016323]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Wave: 9999"
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=462564084]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Health: 9999"
+
+[node name="DamageLabel" type="Label" parent="CanvasLayer" unique_id=1844383330]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -110.0
+offset_top = 22.0
+offset_right = -1.0
+offset_bottom = 45.0
+grow_horizontal = 0
+text = "Damage: 9999"
 
 [node name="Arena" type="Node2D" parent="." unique_id=1321402845]
 
@@ -42,9 +66,10 @@ body = NodePath("..")
 body = NodePath("..")
 body_controller = NodePath("../BodyController")
 
-[node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2") instance=ExtResource("4_lbhrr")]
+[node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "build_applier") instance=ExtResource("4_lbhrr")]
 obj1 = NodePath("../Player")
 obj2 = NodePath("../Anchor/RopeEnd")
+build_applier = NodePath("../../BuildApplier")
 
 [node name="Anchor" parent="Arena" unique_id=2015515689 instance=ExtResource("3_lnu2h")]
 
@@ -54,7 +79,13 @@ gravity_scale = 0.0
 [node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("arena") instance=ExtResource("7_gee14")]
 arena = NodePath("../Arena")
 
-[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner")]
+[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier")]
 script = ExtResource("8_gee14")
 wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn")])
 enemy_spawner = NodePath("../EnemySpawner")
+build_applier = NodePath("../BuildApplier")
+
+[node name="BuildApplier" parent="." unique_id=1250477952 node_paths=PackedStringArray("player", "rope", "anchor") instance=ExtResource("12_kvuet")]
+player = NodePath("../Arena/Player")
+rope = NodePath("../Arena/Rope")
+anchor = NodePath("../Arena/Anchor")
