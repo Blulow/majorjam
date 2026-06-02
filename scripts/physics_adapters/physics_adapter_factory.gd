@@ -6,5 +6,7 @@ static func create(body: Node2D) -> PhysicsAdapter:
 		return CharacterAdapter.new(body)
 	elif body is StaticBody2D:
 		return StaticAdapter.new(body)
+	elif body is RigidBody2D:
+		return RigidBodyAdapter.new(body)
 	
 	return PhysicsAdapter.new()

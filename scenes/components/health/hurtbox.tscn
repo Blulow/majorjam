@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://db83kpteormgm"]
+
+[ext_resource type="Script" uid="uid://0r1ch8vq0y71" path="res://scripts/health/hurtbox.gd" id="1_mpmla"]
+
+[node name="Hurtbox" type="Area2D" unique_id=941001317]
+script = ExtResource("1_mpmla")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

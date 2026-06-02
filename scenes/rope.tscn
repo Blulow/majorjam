@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ccvjkjhj41m7v" path="res://scenes/components/rope/rope_spring.tscn" id="2_ghbyf"]
 [ext_resource type="Script" uid="uid://x2vg5dawig73" path="res://scripts/rope/rope_line.gd" id="3_vlfmi"]
 [ext_resource type="PackedScene" uid="uid://cddmklcnwb7mx" path="res://scenes/components/rope/rope_reel.tscn" id="4_l37dg"]
+[ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_au3ri"]
+[ext_resource type="Script" uid="uid://cwv5yf1rfqlxv" path="res://scripts/rope/sync_line.gd" id="6_5djw0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_s222g"]
 
 [node name="Rope" type="Node2D" unique_id=557276012]
 script = ExtResource("1_icxtj")
@@ -19,3 +23,10 @@ rope = NodePath("..")
 
 [node name="RopeReel" parent="." unique_id=1981682575 node_paths=PackedStringArray("rope") instance=ExtResource("4_l37dg")]
 rope = NodePath("..")
+
+[node name="Hitbox" parent="." unique_id=941001317 instance=ExtResource("5_au3ri")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1382380902 node_paths=PackedStringArray("rope_line")]
+shape = SubResource("SegmentShape2D_s222g")
+script = ExtResource("6_5djw0")
+rope_line = NodePath("../../RopeLine")

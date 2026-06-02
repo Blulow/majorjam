@@ -14,6 +14,7 @@ func _ready() -> void:
 	target = body.target
 
 func _physics_process(delta: float) -> void:
+	if not is_instance_valid(body.target): return
 	dir = body.global_position.direction_to(target.global_position)
 	
 	for i in body.get_slide_collision_count():
