@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://bc36mbj63xsdq"]
 
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemy.gd" id="1_gskjr"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="1_gskjr"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="2_t8vmy"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="3_jpuw7"]
 [ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_dmanw"]
+[ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_ffg12"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="6_b7n2s"]
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="7_4u6xj"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_ne8e8"]
+[ext_resource type="Script" uid="uid://bcllgr47i4ogb" path="res://scripts/enemies/stun_body.gd" id="9_t8vmy"]
 
 [sub_resource type="Gradient" id="Gradient_gskjr"]
 colors = PackedColorArray(0.50390625, 0.46469235, 0.20864868, 1, 1, 1, 1, 1)
@@ -18,11 +20,12 @@ gradient = SubResource("Gradient_gskjr")
 radius = 32.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1084182467 groups=["enemy"]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_gskjr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129537266]
+modulate = Color(1, 1, 1, 0.49019608)
 texture = SubResource("GradientTexture2D_t8vmy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088048531]
@@ -35,15 +38,23 @@ gravity_on = false
 [node name="FlyTowardsMovement" parent="." unique_id=117864476 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("3_jpuw7")]
 body = NodePath("..")
 body_controller = NodePath("../BodyController")
+SPEED = 500.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2053085264]
 rect = Rect2(-41, -40, 82, 80)
 script = ExtResource("4_dmanw")
 
+[node name="Hitbox" parent="." unique_id=941001317 instance=ExtResource("5_ffg12")]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1984999064]
+shape = SubResource("CircleShape2D_gskjr")
+
 [node name="Health" parent="." unique_id=509010372 instance=ExtResource("6_b7n2s")]
 max_health = 30.0
 
-[node name="Hurtbox" parent="." unique_id=941001317 node_paths=PackedStringArray("health") instance=ExtResource("7_4u6xj")]
+[node name="Hurtbox" parent="." unique_id=526974664 node_paths=PackedStringArray("health") instance=ExtResource("7_4u6xj")]
 health = NodePath("../Health")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1101894523]
@@ -56,6 +67,10 @@ offset_right = 0.0
 offset_bottom = -39.0
 scale = Vector2(2, 4.92)
 health = NodePath("../Health")
+
+[node name="StunBody" type="Node2D" parent="." unique_id=2058302967 node_paths=PackedStringArray("hitbox")]
+script = ExtResource("9_t8vmy")
+hitbox = NodePath("../Hitbox")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

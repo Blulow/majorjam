@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://d2uxbwoccdu1o"]
 
 [ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_oxdcy"]
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemy.gd" id="2_uuw53"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="2_uuw53"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_mysn5"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="4_ri71r"]
 [ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="5_v0qqi"]

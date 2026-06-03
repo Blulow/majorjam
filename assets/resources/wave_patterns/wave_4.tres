@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://cp71es3qmfwwd"]
 
 [ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_hyi26"]
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemy.gd" id="2_atp5m"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="2_atp5m"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_gvark"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="4_gw7gy"]
 [ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="5_dwsg4"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="9_85adg"]
 [ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="10_4hnc3"]
 [ext_resource type="PackedScene" uid="uid://d4mib6i4f3oan" path="res://scenes/enemies/tank_enemy.tscn" id="11_wytbs"]
+[ext_resource type="PackedScene" uid="uid://bc36mbj63xsdq" path="res://scenes/enemies/stun_enemy.tscn" id="12_atp5m"]
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="12_dh5jh"]
 [ext_resource type="Script" uid="uid://bvhhsyy2ad1we" path="res://scripts/wave_patterns/stat_modifier.gd" id="13_i3slw"]
 
@@ -78,9 +79,9 @@ metadata/_custom_type_script = "uid://bexeratng4b6f"
 
 [sub_resource type="Resource" id="Resource_gw7gy"]
 script = ExtResource("1_hyi26")
-enemy_scene = ExtResource("11_wytbs")
+enemy_scene = ExtResource("12_atp5m")
 weight = 50.0
-count = 10
+count = 2
 target = NodePath("Arena/Player")
 spawn_pattern = SubResource("Resource_gvark")
 metadata/_custom_type_script = "uid://di2kw8ergkm2g"

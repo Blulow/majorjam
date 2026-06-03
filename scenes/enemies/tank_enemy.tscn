@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d4mib6i4f3oan"]
 
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemy.gd" id="1_au67s"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="1_au67s"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="2_sxe24"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="3_0iv5n"]
 [ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_ioeaq"]
@@ -48,8 +48,8 @@ rect = Rect2(-41, -40, 82, 80)
 script = ExtResource("4_ioeaq")
 
 [node name="Hitbox" parent="." unique_id=504625708 instance=ExtResource("5_t1dfq")]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 8
+collision_mask = 8
 damage_amount = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=329620180]

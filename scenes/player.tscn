@@ -10,6 +10,8 @@ width = 32
 size = Vector2(32, 64)
 
 [node name="Player" type="CharacterBody2D" unique_id=477849407]
+collision_layer = 8
+collision_mask = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1931211036]
 texture = SubResource("GradientTexture2D_qhqgy")

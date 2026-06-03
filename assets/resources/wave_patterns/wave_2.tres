@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://dys8dicjfe5lm"]
 
 [ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_a11ki"]
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemy.gd" id="2_idu17"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="2_idu17"]
 [ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="3_45bvu"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_kg41k"]
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="4_1hhts"]
