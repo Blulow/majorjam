@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://boayvolsjwh44"]
+
+[ext_resource type="Script" uid="uid://783u77mbtfru" path="res://scripts/movement/speed_limit.gd" id="1_21dw7"]
+
+[node name="SpeedLimit" type="Node2D" unique_id=235116759]
+script = ExtResource("1_21dw7")

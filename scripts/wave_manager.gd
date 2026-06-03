@@ -41,6 +41,4 @@ func start_wave(_wave_pattern: WavePattern):
 	enemy_spawner.stat_modifier = wave_pattern.stat_modifier
 	enemy_spawner.active = active
 	
-	build_applier.apply_build(preload("res://assets/resources/builds/health_boost.tres"))
-	
 	wave_start.emit(wave_n)

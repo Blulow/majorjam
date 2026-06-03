@@ -16,9 +16,11 @@ func apply_build(_build: Build):
 		effect.on_added(context)
 
 func on_hit(context: CombatContext):
+	if not build: return
 	for effect: BuildEffect in build.effects:
 		effect.on_hit(context)
 		
 func on_tick(context: CombatContext):
+	if not build: return
 	for effect: BuildEffect in build.effects:
 		effect.on_tick(context)
