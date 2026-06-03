@@ -17,7 +17,7 @@ func _on_wave_stop():
 
 func _on_selected_build(build: Build) -> void:
 	build_applier.apply_build(build)
-	wave_manager.start_wave(preload("res://assets/resources/wave_patterns/wave_2.tres"))
+	wave_manager.start_wave(wave_manager.wave_patterns[wave_manager.current_wave_index])
 	build_builder.close_cards()
 
 func get_random_build_cards(build_cards: Array[BuildCard], count: int) -> Array[BuildCard]:

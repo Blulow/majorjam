@@ -10,11 +10,13 @@ signal wave_stop
 
 var wave_pattern: WavePattern
 var wave_n: int
+var current_wave_index: int
 var active: bool
 var duration_timer: float
 
 func _ready() -> void:
-	start_wave(preload("res://assets/resources/wave_patterns/wave_1.tres"))
+	current_wave_index = 3
+	start_wave(wave_patterns[current_wave_index])
 
 func _process(delta: float) -> void:
 	if not active: return
@@ -24,6 +26,7 @@ func _process(delta: float) -> void:
 	else:
 		active = false
 		enemy_spawner.active = false
+		current_wave_index += 1
 		wave_stop.emit()
 		get_tree().paused = true
 

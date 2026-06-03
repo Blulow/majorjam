@@ -16,9 +16,12 @@
 [ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/game_menu.gd" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://clofs0ee5j5n6" path="res://scenes/components/build/build_applier.tscn" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://wlofpje2yo1e" path="res://scenes/components/build/build_manager.tscn" id="13_kvuet"]
+[ext_resource type="Resource" uid="uid://dys8dicjfe5lm" path="res://assets/resources/wave_patterns/wave_2.tres" id="15_pl11u"]
+[ext_resource type="Resource" uid="uid://d2uxbwoccdu1o" path="res://assets/resources/wave_patterns/wave_3.tres" id="16_bhx41"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="16_ssvqc"]
 [ext_resource type="Resource" uid="uid://dvp5nithcl5ex" path="res://assets/resources/build_cards/attack_increase.tres" id="17_264po"]
 [ext_resource type="Resource" uid="uid://4nlxcoipaudb" path="res://assets/resources/build_cards/health_boost.tres" id="18_1kice"]
+[ext_resource type="Resource" uid="uid://cp71es3qmfwwd" path="res://assets/resources/wave_patterns/wave_4.tres" id="18_bhx41"]
 [ext_resource type="Resource" uid="uid://d243586gq6y43" path="res://assets/resources/build_cards/max_speed.tres" id="20_5newe"]
 [ext_resource type="Resource" uid="uid://dmdrqgp05qjnm" path="res://assets/resources/build_cards/dash_speed.tres" id="21_37s47"]
 [ext_resource type="Resource" uid="uid://cew1aw0uhnd3i" path="res://assets/resources/build_cards/lightning.tres" id="22_37s47"]
@@ -28,6 +31,13 @@
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
+
+[node name="PlayerStatsUpdater" type="Node2D" parent="." unique_id=1748988402 node_paths=PackedStringArray("wave_manager", "anchor", "rope", "player")]
+script = ExtResource("23_bt5mj")
+wave_manager = NodePath("../WaveManager")
+anchor = NodePath("../Arena/Anchor")
+rope = NodePath("../Arena/Rope")
+player = NodePath("../Arena/Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("wave_manager", "anchor", "player")]
 script = ExtResource("11_kvpfn")
@@ -118,7 +128,7 @@ arena = NodePath("../Arena")
 
 [node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier")]
 script = ExtResource("8_gee14")
-wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn")])
+wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn"), ExtResource("15_pl11u"), ExtResource("16_bhx41"), ExtResource("18_bhx41")])
 enemy_spawner = NodePath("../EnemySpawner")
 build_applier = NodePath("../BuildApplier")
 
@@ -134,10 +144,3 @@ build_builder = NodePath("../CanvasLayer/BuildBuilder")
 build_applier = NodePath("../BuildApplier")
 registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice"), ExtResource("20_5newe"), ExtResource("21_37s47"), ExtResource("22_37s47")])
 card_count = 3
-
-[node name="PlayerStatsUpdater" type="Node2D" parent="." unique_id=1748988402 node_paths=PackedStringArray("wave_manager", "anchor", "rope", "player")]
-script = ExtResource("23_bt5mj")
-wave_manager = NodePath("../WaveManager")
-anchor = NodePath("../Arena/Anchor")
-rope = NodePath("../Arena/Rope")
-player = NodePath("../Arena/Player")
