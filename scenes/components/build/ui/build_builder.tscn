@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bmfgi7o6otvjw" path="res://scripts/build/ui/build_builder.gd" id="1_mfx0a"]
 
 [node name="BuildBuilder" type="Control" unique_id=991174832]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

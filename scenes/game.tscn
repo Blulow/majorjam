@@ -101,7 +101,9 @@ player = NodePath("../Arena/Player")
 rope = NodePath("../Arena/Rope")
 anchor = NodePath("../Arena/Anchor")
 
-[node name="BuildManager" parent="." unique_id=593426227 node_paths=PackedStringArray("wave_manager", "build_builder") instance=ExtResource("13_kvuet")]
+[node name="BuildManager" parent="." unique_id=593426227 node_paths=PackedStringArray("wave_manager", "build_builder", "build_applier") instance=ExtResource("13_kvuet")]
 wave_manager = NodePath("../WaveManager")
 build_builder = NodePath("../CanvasLayer/BuildBuilder")
+build_applier = NodePath("../BuildApplier")
 registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice")])
+card_count = null

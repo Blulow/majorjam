@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 
 func start_wave(_wave_pattern: WavePattern):
+	get_tree().paused = false
+	
 	wave_pattern = _wave_pattern
 	wave_n = wave_pattern.wave_n
 	duration_timer = wave_pattern.duration
