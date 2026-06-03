@@ -83,10 +83,17 @@ layout_mode = 2
 text = "Lightning Count: 9999"
 horizontal_alignment = 2
 
-[node name="WaveLabel" type="Label" parent="CanvasLayer" unique_id=1563016323]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="WaveStats" type="VBoxContainer" parent="CanvasLayer" unique_id=1679928384]
+offset_right = 88.0
+offset_bottom = 50.0
+
+[node name="WaveLabel" type="Label" parent="CanvasLayer/WaveStats" unique_id=1563016323]
+layout_mode = 2
 text = "Wave: 9999"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/WaveStats" unique_id=1281204184]
+layout_mode = 2
+text = "Time Left: 9999"
 
 [node name="BuildBuilder" parent="CanvasLayer" unique_id=991174832 instance=ExtResource("2_ir15t")]
 build_card_scene = ExtResource("3_ca42v")

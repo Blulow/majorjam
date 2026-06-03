@@ -4,13 +4,14 @@ extends CanvasLayer
 @export var anchor: Anchor
 @export var player: CharacterBody2D
 
-@onready var wave_label: Label = $WaveLabel
 @onready var health_label: Label = $Stats/HealthLabel
 @onready var damage_label: Label = $Stats/DamageLabel
 @onready var max_speed_label: Label = $Stats/MaxSpeedLabel
 @onready var dash_speed_label: Label = $Stats/DashSpeedLabel
 @onready var speed_label: Label = $Stats/SpeedLabel
 @onready var lightning_count_label: Label = $Stats/LightningCountLabel
+@onready var wave_label: Label = $WaveStats/WaveLabel
+@onready var time_label: Label = $WaveStats/TimeLabel
 
 func _ready() -> void:
 	wave_manager.wave_start.connect(_on_wave_start)
@@ -28,4 +29,5 @@ func _on_hit():
 	health_label.text = "Health: " + str(PlayerStats.HEALTH)
 
 func _process(delta: float) -> void:
-	speed_label.text = "Speed: " + str(player.velocity.length())
+	speed_label.text = "Speed: " + str(int(player.velocity.length()))
+	time_label.text = "Time Left: " + str(int(wave_manager.duration_timer))
