@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://bvhhsyy2ad1we"
 [resource]
 script = ExtResource("3_pblcy")
 wave_n = 1
-duration = 3.0
+duration = 10.0
 interval = 1.0
 enemy_cap = 100
 pool = Array[ExtResource("1_yx1ic")]([SubResource("Resource_pblcy")])

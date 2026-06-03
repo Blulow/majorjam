@@ -6,7 +6,7 @@ class_name FlyTowardsMovement
 
 @export var SPEED = 300.0
 
-var speed: float = SPEED
+@onready var speed: float = SPEED
 var dir: Vector2
 var target: Node2D
 
