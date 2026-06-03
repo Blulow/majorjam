@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="16_ssvqc"]
 [ext_resource type="Resource" uid="uid://dvp5nithcl5ex" path="res://assets/resources/build_cards/attack_increase.tres" id="17_264po"]
 [ext_resource type="Resource" uid="uid://4nlxcoipaudb" path="res://assets/resources/build_cards/health_boost.tres" id="18_1kice"]
+[ext_resource type="Resource" uid="uid://d243586gq6y43" path="res://assets/resources/build_cards/max_speed.tres" id="20_5newe"]
+[ext_resource type="Resource" uid="uid://dmdrqgp05qjnm" path="res://assets/resources/build_cards/dash_speed.tres" id="21_37s47"]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
@@ -32,30 +34,43 @@ anchor = NodePath("../Arena/Anchor")
 rope = NodePath("../Arena/Rope")
 player = NodePath("../Arena/Player")
 
+[node name="Stats" type="VBoxContainer" parent="CanvasLayer" unique_id=1859601827]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/Stats" unique_id=462564084]
+layout_mode = 2
+text = "Health: 9999"
+horizontal_alignment = 2
+
+[node name="DamageLabel" type="Label" parent="CanvasLayer/Stats" unique_id=1844383330]
+layout_mode = 2
+text = "Damage: 9999"
+horizontal_alignment = 2
+
+[node name="MaxSpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=845199681]
+layout_mode = 2
+text = "Max Speed: 9999"
+horizontal_alignment = 2
+
+[node name="DashSpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=520772710]
+layout_mode = 2
+text = "Dash Speed: 9999"
+horizontal_alignment = 2
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=780222820]
+layout_mode = 2
+text = "Dash Speed: 9999"
+horizontal_alignment = 2
+
 [node name="WaveLabel" type="Label" parent="CanvasLayer" unique_id=1563016323]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Wave: 9999"
-
-[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=462564084]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-text = "Health: 9999"
-
-[node name="DamageLabel" type="Label" parent="CanvasLayer" unique_id=1844383330]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -110.0
-offset_top = 22.0
-offset_right = -1.0
-offset_bottom = 45.0
-grow_horizontal = 0
-text = "Damage: 9999"
 
 [node name="BuildBuilder" parent="CanvasLayer" unique_id=991174832 instance=ExtResource("2_ir15t")]
 build_card_scene = ExtResource("3_ca42v")
@@ -110,4 +125,5 @@ anchor = NodePath("../Arena/Anchor")
 wave_manager = NodePath("../WaveManager")
 build_builder = NodePath("../CanvasLayer/BuildBuilder")
 build_applier = NodePath("../BuildApplier")
-registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice")])
+registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice"), ExtResource("20_5newe"), ExtResource("21_37s47")])
+card_count = 3

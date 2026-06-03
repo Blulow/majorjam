@@ -2,8 +2,8 @@ extends DashMovement
 class_name RopeDashMovement
 
 @export var rope: Rope
+@export var rope_dash_speed: float = 50.0
 
-const ROPE_DASH_SPEED: float = 50.0
 const STARTUP_SPEED: float = 500.0
 
 var anchor: Node2D
@@ -43,4 +43,4 @@ func _physics_process(delta: float) -> void:
 		else:
 			counter_force = body_controller.external_vel.length()
 	dir = dash_dir
-	body_controller.external_vel += tangent * dash_dir * (counter_force + ROPE_DASH_SPEED)
+	body_controller.external_vel += tangent * dash_dir * (counter_force + rope_dash_speed)

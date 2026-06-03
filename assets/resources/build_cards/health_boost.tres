@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="BuildCard" format=3 uid="uid://4nlxcoipaudb"]
 
-[ext_resource type="Resource" uid="uid://dxr7wacyawqql" path="res://assets/resources/builds/attack_increase.tres" id="1_3f3fy"]
+[ext_resource type="Resource" uid="uid://m74orx87t04i" path="res://assets/resources/builds/health_boost.tres" id="1_3f3fy"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="2_q3lep"]
 
 [sub_resource type="Gradient" id="Gradient_74ah0"]
@@ -11,8 +11,8 @@ gradient = SubResource("Gradient_74ah0")
 
 [resource]
 script = ExtResource("2_q3lep")
-name = "Attack Increase"
-description = "Attack +50%"
+name = "Health Boost"
+description = "Health +50%"
 image = SubResource("GradientTexture2D_exbg5")
 build = ExtResource("1_3f3fy")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"

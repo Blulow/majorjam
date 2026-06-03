@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="BuildCard" format=3 uid="uid://d243586gq6y43"]
+
+[ext_resource type="Resource" uid="uid://br0dnitol3euc" path="res://assets/resources/builds/max_speed.tres" id="1_1txvw"]
+[ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="2_ohdul"]
+
+[sub_resource type="Gradient" id="Gradient_74ah0"]
+colors = PackedColorArray(0.8984375, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_exbg5"]
+gradient = SubResource("Gradient_74ah0")
+
+[resource]
+script = ExtResource("2_ohdul")
+name = "Max Speed"
+description = "Max Speed +10%"
+image = SubResource("GradientTexture2D_exbg5")
+rarity = 2
+build = ExtResource("1_1txvw")
+metadata/_custom_type_script = "uid://i1l2dnvixscx"
