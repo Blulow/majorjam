@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://bxuaaxvxuv5cv"]
 
+[ext_resource type="PackedScene" uid="uid://cu2uc4nu3ogyw" path="res://scenes/components/build/ui/build_builder.tscn" id="2_ir15t"]
 [ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/movement/rope_dash_movement.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://d0qsxl5ra6nui" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://c8pi3hvuhp06w" path="res://scenes/components/build/ui/build_card.tscn" id="3_ca42v"]
 [ext_resource type="PackedScene" uid="uid://bgmor4w06xkc5" path="res://scenes/anchor.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/rope.tscn" id="4_lbhrr"]
@@ -12,6 +14,10 @@
 [ext_resource type="Resource" uid="uid://bdlckvp1g8po0" path="res://assets/resources/wave_patterns/wave_1.tres" id="10_kvpfn"]
 [ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/game_menu.gd" id="11_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://clofs0ee5j5n6" path="res://scenes/components/build/build_applier.tscn" id="12_kvuet"]
+[ext_resource type="PackedScene" uid="uid://wlofpje2yo1e" path="res://scenes/components/build/build_manager.tscn" id="13_kvuet"]
+[ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="16_ssvqc"]
+[ext_resource type="Resource" uid="uid://dvp5nithcl5ex" path="res://assets/resources/build_cards/attack_increase.tres" id="17_264po"]
+[ext_resource type="Resource" uid="uid://4nlxcoipaudb" path="res://assets/resources/build_cards/health_boost.tres" id="18_1kice"]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
@@ -50,7 +56,11 @@ offset_bottom = 45.0
 grow_horizontal = 0
 text = "Damage: 9999"
 
+[node name="BuildBuilder" parent="CanvasLayer" unique_id=991174832 instance=ExtResource("2_ir15t")]
+build_card_scene = ExtResource("3_ca42v")
+
 [node name="Arena" type="Node2D" parent="." unique_id=1321402845]
+process_mode = 1
 
 [node name="Player" parent="Arena" unique_id=477849407 instance=ExtResource("2_yqjtg")]
 position = Vector2(570, -71)
@@ -86,6 +96,12 @@ enemy_spawner = NodePath("../EnemySpawner")
 build_applier = NodePath("../BuildApplier")
 
 [node name="BuildApplier" parent="." unique_id=1250477952 node_paths=PackedStringArray("player", "rope", "anchor") instance=ExtResource("12_kvuet")]
+process_mode = 3
 player = NodePath("../Arena/Player")
 rope = NodePath("../Arena/Rope")
 anchor = NodePath("../Arena/Anchor")
+
+[node name="BuildManager" parent="." unique_id=593426227 node_paths=PackedStringArray("wave_manager", "build_builder") instance=ExtResource("13_kvuet")]
+wave_manager = NodePath("../WaveManager")
+build_builder = NodePath("../CanvasLayer/BuildBuilder")
+registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice")])

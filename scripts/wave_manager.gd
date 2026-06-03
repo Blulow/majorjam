@@ -6,6 +6,7 @@ class_name WaveManager
 @export var build_applier: BuildApplier
 
 signal wave_start(wave_n)
+signal wave_stop
 
 var wave_pattern: WavePattern
 var wave_n: int
@@ -23,6 +24,8 @@ func _process(delta: float) -> void:
 	else:
 		active = false
 		enemy_spawner.active = false
+		wave_stop.emit()
+		get_tree().paused = true
 
 func start_wave(_wave_pattern: WavePattern):
 	wave_pattern = _wave_pattern
