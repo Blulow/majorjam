@@ -12,7 +12,7 @@ gradient = SubResource("Gradient_74ah0")
 [resource]
 script = ExtResource("2_q3lep")
 name = "Health Boost"
-description = "Health +50%"
+description = "Health +20%"
 image = SubResource("GradientTexture2D_exbg5")
 build = ExtResource("1_3f3fy")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"

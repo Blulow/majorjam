@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://buctn4ndfdvs1" path="res://scripts/build/build_effects/dash_speed_modifier.gd" id="2_tg2s0"]
 [ext_resource type="Script" uid="uid://daelugdpvf7sv" path="res://scripts/build/build.gd" id="3_eponu"]
 
-[sub_resource type="Resource" id="Resource_thsqc"]
+[sub_resource type="Resource" id="Resource_tg2s0"]
 script = ExtResource("2_tg2s0")
+modifier = 0.5
 metadata/_custom_type_script = "uid://buctn4ndfdvs1"
 
 [resource]
 script = ExtResource("3_eponu")
-effects = Array[ExtResource("1_tg2s0")]([SubResource("Resource_thsqc")])
+effects = Array[ExtResource("1_tg2s0")]([SubResource("Resource_tg2s0")])
 metadata/_custom_type_script = "uid://daelugdpvf7sv"

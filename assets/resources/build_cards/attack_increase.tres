@@ -12,8 +12,7 @@ gradient = SubResource("Gradient_74ah0")
 [resource]
 script = ExtResource("1_ev0y6")
 name = "Attack Increase"
-description = "Attack +50%"
+description = "Attack +20%"
 image = SubResource("GradientTexture2D_exbg5")
-rarity = 1
 build = ExtResource("1_8by7c")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"

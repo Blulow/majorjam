@@ -5,9 +5,9 @@
 [ext_resource type="Script" uid="uid://daelugdpvf7sv" path="res://scripts/build/build.gd" id="3_c18te"]
 [ext_resource type="Script" uid="uid://w11si1m6ucay" path="res://scripts/build/build_effects/attack_modifier.gd" id="3_f73mf"]
 
-[sub_resource type="Resource" id="Resource_2ypod"]
+[sub_resource type="Resource" id="Resource_80t5n"]
 script = ExtResource("2_80t5n")
-count = 1
+count = 2
 metadata/_custom_type_script = "uid://dhwy7m3kx64to"
 
 [sub_resource type="Resource" id="Resource_d7q4o"]
@@ -17,5 +17,5 @@ metadata/_custom_type_script = "uid://w11si1m6ucay"
 
 [resource]
 script = ExtResource("3_c18te")
-effects = Array[ExtResource("1_5m318")]([SubResource("Resource_2ypod"), SubResource("Resource_d7q4o")])
+effects = Array[ExtResource("1_5m318")]([SubResource("Resource_80t5n"), SubResource("Resource_d7q4o")])
 metadata/_custom_type_script = "uid://daelugdpvf7sv"

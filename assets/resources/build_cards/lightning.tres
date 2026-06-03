@@ -14,6 +14,6 @@ script = ExtResource("2_lviyq")
 name = "Lightning"
 description = "Lightning Strike +1\\nAttack + 20%"
 image = SubResource("GradientTexture2D_exbg5")
-rarity = 4
+rarity = 2
 build = ExtResource("1_chyno")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"

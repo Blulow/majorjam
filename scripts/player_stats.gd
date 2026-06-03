@@ -5,4 +5,4 @@ var HEALTH: float
 var DAMAGE: float
 var MAX_SPEED: float
 var DASH_SPEED: float
-var LIGHTNING_COUNT: int
+var LIGHTNING_COUNT: int = 5

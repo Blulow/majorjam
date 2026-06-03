@@ -12,8 +12,7 @@ gradient = SubResource("Gradient_74ah0")
 [resource]
 script = ExtResource("2_oxqsn")
 name = "Dash Speed"
-description = "Dash Speed +10%"
+description = "Dash Speed +50%"
 image = SubResource("GradientTexture2D_exbg5")
-rarity = 3
 build = ExtResource("1_0b8v5")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"
