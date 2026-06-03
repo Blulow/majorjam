@@ -9,13 +9,16 @@ var timer: float = COOLDOWN
 
 var can_hit: bool = true
 
+func on_added(context: CombatContext):
+	PlayerStats.LIGHTNING_COUNT += count
+
 func on_hit(context: CombatContext):
 	if not can_hit: return
 	
 	var lightning: Lightning = lightning_scene.instantiate()
 	context.arena.add_child(lightning)
 	lightning.get_node("Hitbox").damage_amount = context.rope.get_node("Hitbox").damage_amount
-	lightning.attack(context.enemy, count, context.arena)
+	lightning.attack(context.enemy, PlayerStats.LIGHTNING_COUNT, context.arena)
 	can_hit = false
 
 func on_tick(context: CombatContext):

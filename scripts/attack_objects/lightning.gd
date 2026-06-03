@@ -16,7 +16,7 @@ func attack(enemy: Enemy, count: int, arena: Node2D) -> void:
 		if len(overlapping_enemies) > 0:
 			for e: Enemy in overlapping_enemies:
 				#if not e.is_in_group("enemy"): continue
-				if e == enemy: continue
+				if e == enemy or not e: continue
 				
 				if next_enemy == null or enemy_dist == null:
 					next_enemy = e
