@@ -22,8 +22,11 @@
 [ext_resource type="Resource" uid="uid://dvp5nithcl5ex" path="res://assets/resources/build_cards/attack_increase.tres" id="17_264po"]
 [ext_resource type="Resource" uid="uid://4nlxcoipaudb" path="res://assets/resources/build_cards/health_boost.tres" id="18_1kice"]
 [ext_resource type="Resource" uid="uid://cp71es3qmfwwd" path="res://assets/resources/wave_patterns/wave_4.tres" id="18_bhx41"]
+[ext_resource type="Resource" uid="uid://cho8r4i8ometm" path="res://assets/resources/wave_patterns/wave_5.tres" id="19_sww3w"]
 [ext_resource type="Resource" uid="uid://d243586gq6y43" path="res://assets/resources/build_cards/max_speed.tres" id="20_5newe"]
+[ext_resource type="Resource" uid="uid://ybfdwdpc6j1d" path="res://assets/resources/wave_patterns/wave_6.tres" id="20_suyxu"]
 [ext_resource type="Resource" uid="uid://dmdrqgp05qjnm" path="res://assets/resources/build_cards/dash_speed.tres" id="21_37s47"]
+[ext_resource type="Resource" uid="uid://6agwcpkd2mrt" path="res://assets/resources/wave_patterns/wave_7.tres" id="21_suyxu"]
 [ext_resource type="Resource" uid="uid://cew1aw0uhnd3i" path="res://assets/resources/build_cards/lightning.tres" id="22_37s47"]
 [ext_resource type="Script" uid="uid://tu3rlu0tc37u" path="res://scripts/player_stats_updater.gd" id="23_bt5mj"]
 
@@ -135,7 +138,7 @@ arena = NodePath("../Arena")
 
 [node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier")]
 script = ExtResource("8_gee14")
-wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn"), ExtResource("15_pl11u"), ExtResource("16_bhx41"), ExtResource("18_bhx41")])
+wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn"), ExtResource("15_pl11u"), ExtResource("16_bhx41"), ExtResource("18_bhx41"), ExtResource("19_sww3w"), ExtResource("20_suyxu"), ExtResource("21_suyxu")])
 enemy_spawner = NodePath("../EnemySpawner")
 build_applier = NodePath("../BuildApplier")
 

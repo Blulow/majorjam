@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://6agwcpkd2mrt"]
+
+[ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_lxqxl"]
+[ext_resource type="PackedScene" uid="uid://d4mib6i4f3oan" path="res://scenes/enemies/tank_enemy.tscn" id="2_m7ayw"]
+[ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="10_drao3"]
+[ext_resource type="PackedScene" uid="uid://c6o862f3ivw0m" path="res://scenes/enemies/sucking_enemy.tscn" id="11_lpx1r"]
+[ext_resource type="PackedScene" uid="uid://bc36mbj63xsdq" path="res://scenes/enemies/stun_enemy.tscn" id="12_273on"]
+[ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="13_rnrwn"]
+[ext_resource type="Script" uid="uid://bvhhsyy2ad1we" path="res://scripts/wave_patterns/stat_modifier.gd" id="14_trm74"]
+
+[sub_resource type="Resource" id="Resource_bduxp"]
+script = ExtResource("10_drao3")
+
+[sub_resource type="Resource" id="Resource_3gs5g"]
+script = ExtResource("1_lxqxl")
+enemy_scene = ExtResource("2_m7ayw")
+weight = 50.0
+count = 3
+target = NodePath("Arena/Anchor")
+spawn_pattern = SubResource("Resource_bduxp")
+metadata/_custom_type_script = "uid://di2kw8ergkm2g"
+
+[sub_resource type="Resource" id="Resource_ha6a2"]
+script = ExtResource("10_drao3")
+min_radius = 500.0
+max_radius = 600.0
+metadata/_custom_type_script = "uid://bexeratng4b6f"
+
+[sub_resource type="Resource" id="Resource_tv5q8"]
+script = ExtResource("1_lxqxl")
+enemy_scene = ExtResource("11_lpx1r")
+weight = 40.0
+count = 1
+target = NodePath("Arena/Player")
+spawn_pattern = SubResource("Resource_ha6a2")
+metadata/_custom_type_script = "uid://di2kw8ergkm2g"
+
+[sub_resource type="Resource" id="Resource_gvark"]
+script = ExtResource("10_drao3")
+min_radius = 400.0
+max_radius = 500.0
+metadata/_custom_type_script = "uid://bexeratng4b6f"
+
+[sub_resource type="Resource" id="Resource_142y2"]
+script = ExtResource("1_lxqxl")
+enemy_scene = ExtResource("12_273on")
+weight = 10.0
+count = 3
+target = NodePath("Arena/Player")
+spawn_pattern = SubResource("Resource_gvark")
+metadata/_custom_type_script = "uid://di2kw8ergkm2g"
+
+[sub_resource type="Resource" id="Resource_m7ayw"]
+script = ExtResource("14_trm74")
+health_modifier = 1.7
+damage_modifier = 1.7
+metadata/_custom_type_script = "uid://bvhhsyy2ad1we"
+
+[resource]
+script = ExtResource("13_rnrwn")
+wave_n = 7
+duration = 25.0
+interval = 1.0
+enemy_cap = 100
+pool = Array[ExtResource("1_lxqxl")]([SubResource("Resource_3gs5g"), SubResource("Resource_tv5q8"), SubResource("Resource_142y2")])
+stat_modifier = SubResource("Resource_m7ayw")
+metadata/_custom_type_script = "uid://evrwgbfuh4eb"

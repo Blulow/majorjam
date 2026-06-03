@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://c6o862f3ivw0m"]
+
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="1_i0xfi"]
+[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="2_4b78c"]
+[ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_k5cdd"]
+[ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="6_yw8jl"]
+[ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="7_fgy4g"]
+[ext_resource type="Script" uid="uid://chbt8fbs7cgyd" path="res://scripts/enemies/suck_body.gd" id="7_mupkg"]
+[ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_ymnin"]
+
+[sub_resource type="Gradient" id="Gradient_g2els"]
+colors = PackedColorArray(0.1953125, 0.5, 0.22149658, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8tegq"]
+gradient = SubResource("Gradient_g2els")
+width = 128
+height = 128
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
+size = Vector2(128, 128)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 groups=["enemy"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_i0xfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129537266]
+texture = SubResource("GradientTexture2D_8tegq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088048531]
+shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="BodyController" parent="." unique_id=22720870 node_paths=PackedStringArray("body") instance=ExtResource("2_4b78c")]
+body = NodePath("..")
+gravity_on = false
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2053085264]
+rect = Rect2(-81, -79, 162, 158)
+script = ExtResource("4_k5cdd")
+
+[node name="Health" parent="." unique_id=509010372 instance=ExtResource("6_yw8jl")]
+max_health = 50.0
+
+[node name="Hurtbox" parent="." unique_id=941001317 node_paths=PackedStringArray("health") instance=ExtResource("7_fgy4g")]
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1101894523]
+shape = SubResource("RectangleShape2D_xwavj")
+
+[node name="HealthBar" parent="." unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("8_ymnin")]
+offset_left = -64.0
+offset_top = -75.0
+offset_right = -32.0
+offset_bottom = -74.0
+scale = Vector2(4, 5.4000015)
+health = NodePath("../Health")
+
+[node name="SuckBody" type="Node2D" parent="." unique_id=640307627 node_paths=PackedStringArray("enemy")]
+script = ExtResource("7_mupkg")
+enemy = NodePath("..")
+strength = 50.0
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
+[connection signal="died" from="Health" to="." method="_on_health_died"]
