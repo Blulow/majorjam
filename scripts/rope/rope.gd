@@ -6,12 +6,15 @@ class_name Rope
 var max_length: float = 20.0
 
 @export var build_applier: BuildApplier
+@export var arena: Node2D
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if not area.get_parent() is Enemy: return
 	
 	var context: CombatContext = CombatContext.new()
 	context.enemy = area.get_parent()
+	context.arena = arena
+	context.rope = self
 	build_applier.on_hit(context)
 
 func _process(delta: float) -> void:

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dyw36bxr1uvcw"]
+
+[ext_resource type="Script" uid="uid://dme8mc3ob7gu8" path="res://scripts/attack_objects/lightning.gd" id="1_d7okk"]
+[ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="2_rens8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d7okk"]
+radius = 1000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8cnk"]
+
+[node name="Lightning" type="Node2D" unique_id=892561194]
+script = ExtResource("1_d7okk")
+
+[node name="Range" type="Area2D" parent="." unique_id=827173157]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1122494014]
+shape = SubResource("CircleShape2D_d7okk")
+
+[node name="Hitbox" parent="." unique_id=941001317 instance=ExtResource("2_rens8")]
+damage_amount = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=392799104]
+shape = SubResource("RectangleShape2D_e8cnk")
