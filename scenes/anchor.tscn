@@ -3,15 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="1_hs5qy"]
 [ext_resource type="Script" uid="uid://sgq8bits1eff" path="res://scripts/anchor.gd" id="1_ua340"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="2_ua340"]
+[ext_resource type="Texture2D" uid="uid://cguekdun8coyv" path="res://assets/images/player/anchor.png" id="2_wllpp"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="4_lm60w"]
-
-[sub_resource type="Gradient" id="Gradient_gdjek"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hs5qy"]
-gradient = SubResource("Gradient_gdjek")
-width = 16
-height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k6ed"]
 size = Vector2(16, 16)
@@ -25,7 +18,8 @@ collision_mask = 6
 script = ExtResource("1_ua340")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1669435227]
-texture = SubResource("GradientTexture2D_hs5qy")
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+texture = ExtResource("2_wllpp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=212469592]
 shape = SubResource("RectangleShape2D_1k6ed")
