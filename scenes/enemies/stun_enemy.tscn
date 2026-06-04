@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://bc36mbj63xsdq"]
 
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="1_gskjr"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/game/enemies/enemy.gd" id="1_gskjr"]
 [ext_resource type="Texture2D" uid="uid://bgclxusurajjk" path="res://assets/images/enemies/stun_enemy_death.png" id="2_dmanw"]
 [ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="2_ffg12"]
 [ext_resource type="Texture2D" uid="uid://ccev2opvj0x20" path="res://assets/images/enemies/stun_enemy.png" id="2_jpuw7"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="2_t8vmy"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="3_jpuw7"]
-[ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_dmanw"]
+[ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/game/enemies/free_on_exit.gd" id="4_dmanw"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_ffg12"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="6_b7n2s"]
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="7_4u6xj"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_ne8e8"]
-[ext_resource type="Script" uid="uid://bcllgr47i4ogb" path="res://scripts/enemies/stun_body.gd" id="9_t8vmy"]
+[ext_resource type="Script" uid="uid://bcllgr47i4ogb" path="res://scripts/game/enemies/stun_body.gd" id="9_t8vmy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b7n2s"]
 shader = ExtResource("2_ffg12")

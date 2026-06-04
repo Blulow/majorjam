@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wlofpje2yo1e"]
 
-[ext_resource type="Script" uid="uid://doywdiihlgp5j" path="res://scripts/build/build_manager.gd" id="1_uqmov"]
+[ext_resource type="Script" uid="uid://doywdiihlgp5j" path="res://scripts/game/build/build_manager.gd" id="1_uqmov"]
 
 [node name="BuildManager" type="Node2D" unique_id=593426227]
 process_mode = 3

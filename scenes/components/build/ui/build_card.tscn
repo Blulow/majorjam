@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8pi3hvuhp06w"]
 
-[ext_resource type="Script" uid="uid://c2usd4g6m4csr" path="res://scripts/build/ui/build_card_ui.gd" id="1_dxia2"]
+[ext_resource type="Script" uid="uid://c2usd4g6m4csr" path="res://scripts/game/build/ui/build_card_ui.gd" id="1_dxia2"]
 
 [sub_resource type="Gradient" id="Gradient_wihl2"]
 

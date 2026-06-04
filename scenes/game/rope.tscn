@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bv44pj8q4xpe3"]
 
-[ext_resource type="Script" uid="uid://3q8pe12eka62" path="res://scripts/rope/rope.gd" id="1_icxtj"]
+[ext_resource type="Script" uid="uid://3q8pe12eka62" path="res://scripts/game/rope/rope.gd" id="1_icxtj"]
 [ext_resource type="PackedScene" uid="uid://ccvjkjhj41m7v" path="res://scenes/components/rope/rope_spring.tscn" id="2_ghbyf"]
 [ext_resource type="Shader" uid="uid://b12rnnsphc3wb" path="res://assets/shaders/part_glow.tres" id="3_onxel"]
-[ext_resource type="Script" uid="uid://x2vg5dawig73" path="res://scripts/rope/rope_line.gd" id="3_vlfmi"]
+[ext_resource type="Script" uid="uid://x2vg5dawig73" path="res://scripts/game/rope/rope_line.gd" id="3_vlfmi"]
 [ext_resource type="PackedScene" uid="uid://cddmklcnwb7mx" path="res://scenes/components/rope/rope_reel.tscn" id="4_l37dg"]
 [ext_resource type="Texture2D" uid="uid://boofcy43rygfj" path="res://assets/images/player/rope.png" id="4_tgkn4"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_au3ri"]
-[ext_resource type="Script" uid="uid://cwv5yf1rfqlxv" path="res://scripts/rope/sync_line.gd" id="6_5djw0"]
+[ext_resource type="Script" uid="uid://cwv5yf1rfqlxv" path="res://scripts/game/rope/sync_line.gd" id="6_5djw0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hbur5"]
 shader = ExtResource("3_onxel")

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cddmklcnwb7mx"]
 
-[ext_resource type="Script" uid="uid://cp6qjwei0ye70" path="res://scripts/rope/rope_reel.gd" id="1_dpug4"]
+[ext_resource type="Script" uid="uid://cp6qjwei0ye70" path="res://scripts/game/rope/rope_reel.gd" id="1_dpug4"]
 
 [node name="RopeReel" type="Node2D" unique_id=1981682575]
 script = ExtResource("1_dpug4")

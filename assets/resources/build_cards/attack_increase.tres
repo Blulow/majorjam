@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BuildCard" format=3 uid="uid://dvp5nithcl5ex"]
 
 [ext_resource type="Resource" uid="uid://dxr7wacyawqql" path="res://assets/resources/builds/attack_increase.tres" id="1_8by7c"]
-[ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="1_ev0y6"]
+[ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/game/build/build_card.gd" id="1_ev0y6"]
 
 [sub_resource type="Gradient" id="Gradient_74ah0"]
 colors = PackedColorArray(0, 0.0859375, 1, 1, 1, 1, 1, 1)

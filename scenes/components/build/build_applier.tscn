@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://clofs0ee5j5n6"]
 
-[ext_resource type="Script" uid="uid://cqyphio0fw8j3" path="res://scripts/build/build_applier.gd" id="1_6cwsr"]
+[ext_resource type="Script" uid="uid://cqyphio0fw8j3" path="res://scripts/game/build/build_applier.gd" id="1_6cwsr"]
 
 [node name="BuildApplier" type="Node2D" unique_id=1250477952]
 script = ExtResource("1_6cwsr")

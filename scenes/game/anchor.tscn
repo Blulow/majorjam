@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bgmor4w06xkc5"]
 
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="1_hs5qy"]
-[ext_resource type="Script" uid="uid://sgq8bits1eff" path="res://scripts/anchor.gd" id="1_ua340"]
+[ext_resource type="Script" uid="uid://sgq8bits1eff" path="res://scripts/game/anchor/anchor.gd" id="1_ua340"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="2_ua340"]
 [ext_resource type="Texture2D" uid="uid://cguekdun8coyv" path="res://assets/images/player/anchor.png" id="2_wllpp"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="4_lm60w"]

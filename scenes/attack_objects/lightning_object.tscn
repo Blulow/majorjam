@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://de1h853ih2dss"]
 
-[ext_resource type="Script" uid="uid://212nfpc8uwcn" path="res://scripts/attack_objects/lightning_object.gd" id="1_cocqe"]
+[ext_resource type="Script" uid="uid://212nfpc8uwcn" path="res://scripts/game/attack_objects/lightning_object.gd" id="1_cocqe"]
 
 [sub_resource type="Gradient" id="Gradient_1cibb"]
 colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)

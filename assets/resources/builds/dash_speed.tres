@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Build" format=3 uid="uid://drrb6y5hng2bl"]
 
-[ext_resource type="Script" uid="uid://bhpno1aow3pps" path="res://scripts/build/build_effects/build_effect.gd" id="1_tg2s0"]
-[ext_resource type="Script" uid="uid://buctn4ndfdvs1" path="res://scripts/build/build_effects/dash_speed_modifier.gd" id="2_tg2s0"]
-[ext_resource type="Script" uid="uid://daelugdpvf7sv" path="res://scripts/build/build.gd" id="3_eponu"]
+[ext_resource type="Script" uid="uid://bhpno1aow3pps" path="res://scripts/game/build/build_effects/build_effect.gd" id="1_tg2s0"]
+[ext_resource type="Script" uid="uid://buctn4ndfdvs1" path="res://scripts/game/build/build_effects/dash_speed_modifier.gd" id="2_tg2s0"]
+[ext_resource type="Script" uid="uid://daelugdpvf7sv" path="res://scripts/game/build/build.gd" id="3_eponu"]
 
 [sub_resource type="Resource" id="Resource_tg2s0"]
 script = ExtResource("2_tg2s0")
