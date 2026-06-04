@@ -347,10 +347,12 @@ sprite = NodePath("../AnimatedSprite2D")
 body_controller = NodePath("../BodyController")
 rope_dash_movement = NodePath("../RopeDashMovement")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Arena/Player" unique_id=184688399 node_paths=PackedStringArray("death_screen", "anchor")]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Arena/Player" unique_id=184688399 node_paths=PackedStringArray("death_screen", "audio", "anchor")]
+process_mode = 3
 rect = Rect2(-26, -43, 52, 86)
 script = ExtResource("15_0gkf7")
 death_screen = NodePath("../../../CanvasLayer/DeathScreen")
+audio = NodePath("../../../AudioStreamPlayer")
 anchor = NodePath("../../Anchor")
 
 [node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "build_applier", "arena") instance=ExtResource("4_lbhrr")]
@@ -376,12 +378,13 @@ script = ExtResource("17_gxtfn")
 [node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("arena") instance=ExtResource("7_gee14")]
 arena = NodePath("../Arena")
 
-[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier", "win_screen")]
+[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier", "win_screen", "audio")]
 script = ExtResource("8_gee14")
 wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn"), ExtResource("15_pl11u"), ExtResource("16_bhx41"), ExtResource("18_bhx41"), ExtResource("19_sww3w"), ExtResource("20_suyxu"), ExtResource("21_suyxu")])
 enemy_spawner = NodePath("../EnemySpawner")
 build_applier = NodePath("../BuildApplier")
 win_screen = NodePath("../CanvasLayer/WinScreen")
+audio = NodePath("../AudioStreamPlayer")
 
 [node name="BuildApplier" parent="." unique_id=1250477952 node_paths=PackedStringArray("player", "rope", "anchor") instance=ExtResource("12_kvuet")]
 process_mode = 3

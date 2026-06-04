@@ -2,17 +2,12 @@
 
 [ext_resource type="Resource" uid="uid://dxr7wacyawqql" path="res://assets/resources/builds/attack_increase.tres" id="1_8by7c"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/game/build/build_card.gd" id="1_ev0y6"]
-
-[sub_resource type="Gradient" id="Gradient_74ah0"]
-colors = PackedColorArray(0, 0.0859375, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_exbg5"]
-gradient = SubResource("Gradient_74ah0")
+[ext_resource type="Texture2D" uid="uid://die6eve4onwac" path="res://assets/images/card_images/attack_increase.png" id="2_74ah0"]
 
 [resource]
 script = ExtResource("1_ev0y6")
 name = "Attack Increase"
 description = "Attack +20%"
-image = SubResource("GradientTexture2D_exbg5")
+image = ExtResource("2_74ah0")
 build = ExtResource("1_8by7c")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"

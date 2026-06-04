@@ -1,6 +1,7 @@
 extends VisibleOnScreenNotifier2D
 
 @export var death_screen: Control
+@export var audio: AudioStreamPlayer
 @export var anchor: Anchor
 
 func _ready() -> void:
@@ -8,6 +9,7 @@ func _ready() -> void:
 
 func _on_screen_exited() -> void:
 	if anchor: return
+	audio.stop()
 	
 	await get_tree().create_timer(0.5).timeout
 	get_tree().paused = true

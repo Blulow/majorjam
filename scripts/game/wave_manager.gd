@@ -5,6 +5,7 @@ class_name WaveManager
 @export var enemy_spawner: EnemySpawner
 @export var build_applier: BuildApplier
 @export var win_screen: Control
+@export var audio: AudioStreamPlayer
 
 signal wave_start(wave_n)
 signal wave_stop
@@ -17,7 +18,7 @@ var active: bool
 var duration_timer: float
 
 func _ready() -> void:
-	current_wave_index = 6
+	current_wave_index = 0
 	start_wave(wave_patterns[current_wave_index])
 
 func _process(delta: float) -> void:
@@ -53,6 +54,7 @@ func start_wave(_wave_pattern: WavePattern):
 	wave_start.emit(wave_n)
 
 func _on_win() -> void:
+	audio.stop()
 	get_tree().paused = true
 	
 	var anim: AnimationPlayer = win_screen.get_node("AnimationPlayer")

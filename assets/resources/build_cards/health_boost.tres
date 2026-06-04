@@ -1,18 +1,13 @@
 [gd_resource type="Resource" script_class="BuildCard" format=3 uid="uid://4nlxcoipaudb"]
 
 [ext_resource type="Resource" uid="uid://m74orx87t04i" path="res://assets/resources/builds/health_boost.tres" id="1_3f3fy"]
+[ext_resource type="Texture2D" uid="uid://c6ya6ju3l0tvu" path="res://assets/images/card_images/health_boost.png" id="2_bx25d"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/game/build/build_card.gd" id="2_q3lep"]
-
-[sub_resource type="Gradient" id="Gradient_74ah0"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_exbg5"]
-gradient = SubResource("Gradient_74ah0")
 
 [resource]
 script = ExtResource("2_q3lep")
 name = "Health Boost"
 description = "Health +20%"
-image = SubResource("GradientTexture2D_exbg5")
+image = ExtResource("2_bx25d")
 build = ExtResource("1_3f3fy")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"

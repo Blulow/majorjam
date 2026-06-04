@@ -2,18 +2,13 @@
 
 [ext_resource type="Resource" uid="uid://dsc5xxlm1lkc5" path="res://assets/resources/builds/lightning_effect.tres" id="1_chyno"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/game/build/build_card.gd" id="2_lviyq"]
-
-[sub_resource type="Gradient" id="Gradient_74ah0"]
-colors = PackedColorArray(0, 1, 0.859375, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_exbg5"]
-gradient = SubResource("Gradient_74ah0")
+[ext_resource type="Texture2D" uid="uid://5eqx0ytrb0tl" path="res://assets/images/card_images/lightning.png" id="2_x84rt"]
 
 [resource]
 script = ExtResource("2_lviyq")
 name = "Lightning"
 description = "Lightning Strike +1\\nAttack + 20%"
-image = SubResource("GradientTexture2D_exbg5")
+image = ExtResource("2_x84rt")
 rarity = 2
 build = ExtResource("1_chyno")
 metadata/_custom_type_script = "uid://i1l2dnvixscx"
