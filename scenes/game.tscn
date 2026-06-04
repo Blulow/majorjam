@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/rope.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="4_u5sy4"]
+[ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="6_js0lu"]
 [ext_resource type="PackedScene" uid="uid://bx112x7jc0xs2" path="res://scenes/spawners/enemy_spawner.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="8_264po"]
 [ext_resource type="Script" uid="uid://ie2sruuvnn2a" path="res://scripts/wave_manager.gd" id="8_gee14"]
@@ -77,6 +78,9 @@ colors = PackedColorArray(0.028930664, 0.17094707, 0.30859375, 1, 0.0134887695, 
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_js0lu"]
 gradient = SubResource("Gradient_v2yb1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxtfn"]
+shader = ExtResource("6_js0lu")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gxtfn"]
 animations = [{
@@ -213,7 +217,12 @@ z_index = 1
 position = Vector2(570, -71)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arena/Player" unique_id=825846924]
-scale = Vector2(1.0000025, 0.99999994)
+material = SubResource("ShaderMaterial_gxtfn")
+instance_shader_parameters/border_thickness = 2.000000095
+instance_shader_parameters/glow_color = Color(1, 0.9140625, 0, 1)
+instance_shader_parameters/glow_intensity = 4.1110001952725
+position = Vector2(0, -3.814697e-06)
+scale = Vector2(1.0000025, 1)
 sprite_frames = SubResource("SpriteFrames_gxtfn")
 animation = &"idle"
 autoplay = "idle"
