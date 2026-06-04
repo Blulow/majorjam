@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bxuaaxvxuv5cv"]
 
+[ext_resource type="AudioStream" uid="uid://bl4y6c8y7ym8c" path="res://assets/sounds/the_rope_underwater.ogg" id="1_b7fhm"]
 [ext_resource type="Script" uid="uid://b6qpgjdaufse4" path="res://scripts/game/parallax_background.gd" id="1_teoly"]
 [ext_resource type="Texture2D" uid="uid://cmayudj1fhvp" path="res://assets/images/background/background1.png" id="2_b7fhm"]
 [ext_resource type="PackedScene" uid="uid://cu2uc4nu3ogyw" path="res://scenes/components/build/ui/build_builder.tscn" id="2_ir15t"]
@@ -96,6 +97,11 @@ fill_to = Vector2(0.90434784, 0.14782609)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1237647611]
+stream = ExtResource("1_b7fhm")
+autoplay = true
+parameters/looping = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=896123048]
 environment = SubResource("Environment_v2yb1")
