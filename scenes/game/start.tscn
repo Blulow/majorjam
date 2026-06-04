@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://bdkapwpvsr0r2"]
 
+[ext_resource type="Script" uid="uid://b6qpgjdaufse4" path="res://scripts/game/parallax_background.gd" id="1_2wurs"]
 [ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/ui/game_menu.gd" id="1_ex6di"]
+[ext_resource type="Texture2D" uid="uid://cmayudj1fhvp" path="res://assets/images/background/background1.png" id="2_avqes"]
+[ext_resource type="Texture2D" uid="uid://6pbh1ppnvilp" path="res://assets/images/background/background2.png" id="3_2pvtu"]
 [ext_resource type="Texture2D" uid="uid://dm7m4b07fdb1t" path="res://assets/images/ui/keybinds_guide1.png" id="3_ex6di"]
 [ext_resource type="Texture2D" uid="uid://b7mrg3r6wteub" path="res://assets/images/ui/keybinds_guide2.png" id="4_7ndx4"]
 [ext_resource type="Texture2D" uid="uid://b2dm4oenpbdrn" path="res://assets/images/ui/message1.png" id="4_emvee"]
+[ext_resource type="Texture2D" uid="uid://c5mg63tbxsoc" path="res://assets/images/background/background3.png" id="4_qedsw"]
 [ext_resource type="PackedScene" uid="uid://d0qsxl5ra6nui" path="res://scenes/game/player.tscn" id="4_wtjof"]
 [ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="5_ffns3"]
+[ext_resource type="Texture2D" uid="uid://cv62kyphd5b1h" path="res://assets/images/background/background4.png" id="5_qaru1"]
 [ext_resource type="Texture2D" uid="uid://d3jnx3oetdbu1" path="res://assets/images/ui/message2.png" id="5_wtjof"]
+[ext_resource type="Texture2D" uid="uid://b2ig64lasdy6s" path="res://assets/images/background/background5.png" id="6_1p1bq"]
 [ext_resource type="Texture2D" uid="uid://d2dlr33xjon6v" path="res://assets/images/ui/play.png" id="6_dmw7s"]
 [ext_resource type="Texture2D" uid="uid://ixogo4uabet7" path="res://assets/images/player/player_dash.png" id="6_myded"]
 [ext_resource type="Texture2D" uid="uid://cmeq2hb3kae2g" path="res://assets/images/enemies/enemy.png" id="6_wtjof"]
@@ -17,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/movement/rope_dash_movement.tscn" id="9_xaw65"]
 [ext_resource type="Texture2D" uid="uid://dyo8h7vd6o00r" path="res://assets/images/ui/quit_game.png" id="10_0qnm6"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="10_dmw7s"]
+[ext_resource type="FontFile" uid="uid://buq328gvtjmum" path="res://assets/fonts/BluFont.ttf" id="10_fbgn1"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="11_b5cym"]
 [ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="11_fbgn1"]
 [ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="12_smf6k"]
@@ -110,6 +117,30 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(11, 108.815)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Stats:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(791, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/WaveStats:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_smf6k"]
 resource_name = "start"
@@ -185,18 +216,36 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-404.86, 108.815), Vector2(20.445, 108.815)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Stats:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(969.99, 0), Vector2(785.605, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/WaveStats:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-170.35, 0), Vector2(2.565, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l78sk"]
 _data = {
 &"RESET": SubResource("Animation_b5cym"),
 &"start": SubResource("Animation_smf6k")
 }
-
-[sub_resource type="Gradient" id="Gradient_v2yb1"]
-colors = PackedColorArray(0.028930664, 0.17094707, 0.30859375, 1, 0.0134887695, 0.06848955, 0.1328125, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_js0lu"]
-gradient = SubResource("Gradient_v2yb1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_emvee"]
 shader = ExtResource("5_ffns3")
@@ -336,22 +385,116 @@ autoplay = &"start"
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1788903923]
 layer = -2
+script = ExtResource("1_2wurs")
 
-[node name="TextureRect" type="TextureRect" parent="ParallaxBackground" unique_id=54093201]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=449077302]
+scale = Vector2(5, 5)
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=54093201]
 modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -690.0
-offset_top = -414.0
-offset_right = -626.0
-offset_bottom = -350.0
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 450.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(22.03125, 13.281251)
-texture = SubResource("GradientTexture2D_js0lu")
+scale = Vector2(2, 2)
+pivot_offset = Vector2(320, 180)
+texture = ExtResource("2_avqes")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=417799417]
+scale = Vector2(3, 3)
+motion_scale = Vector2(0.3, 0.3)
+motion_offset = Vector2(-582.27, -262.145)
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2" unique_id=130751682]
+modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(320, 180)
+texture = ExtResource("3_2pvtu")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=609317985]
+scale = Vector2(2.4, 2.4)
+motion_scale = Vector2(0.4, 0.4)
+motion_offset = Vector2(-407.685, -412.645)
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3" unique_id=425399031]
+modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(320, 180)
+texture = ExtResource("4_qedsw")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=759511579]
+scale = Vector2(2, 2)
+motion_scale = Vector2(0.5, 0.5)
+motion_offset = Vector2(-397.385, -230.985)
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer4" unique_id=1206517559]
+modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(320, 180)
+texture = ExtResource("5_qaru1")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=971823350]
+scale = Vector2(1.9, 1.9)
+motion_scale = Vector2(1, 0.5)
+motion_offset = Vector2(-868.695, -260)
+
+[node name="TextureRect5" type="TextureRect" parent="ParallaxBackground/ParallaxLayer5" unique_id=1593757434]
+modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 90.0
+offset_right = 800.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(320, 180)
+texture = ExtResource("6_1p1bq")
 
 [node name="Guide" type="CanvasLayer" parent="." unique_id=92814761]
 layer = -1
@@ -369,7 +512,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -469.0
 offset_top = -161.185
-offset_right = -338.99905
+offset_right = -338.99902
 offset_bottom = -57.184998
 grow_horizontal = 2
 grow_vertical = 2
@@ -495,50 +638,67 @@ player = NodePath("../Arena/Player")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -109.0
-offset_bottom = 50.0
+offset_left = -169.0
+offset_right = 51.0
+offset_bottom = 164.0
 grow_horizontal = 0
 
 [node name="HealthLabel" type="Label" parent="CanvasLayer/Stats" unique_id=462564084]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Health: 9999"
 horizontal_alignment = 2
 
 [node name="DamageLabel" type="Label" parent="CanvasLayer/Stats" unique_id=1844383330]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Damage: 9999"
 horizontal_alignment = 2
 
 [node name="MaxSpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=845199681]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Max Speed: 9999"
 horizontal_alignment = 2
 
 [node name="DashSpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=520772710]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Dash Speed: 9999"
 horizontal_alignment = 2
 
 [node name="SpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=780222820]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Dash Speed: 9999"
 horizontal_alignment = 2
 
 [node name="LightningCountLabel" type="Label" parent="CanvasLayer/Stats" unique_id=711434102]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Lightning Count: 9999"
 horizontal_alignment = 2
 
 [node name="WaveStats" type="VBoxContainer" parent="CanvasLayer" unique_id=1679928384]
-offset_right = 88.0
-offset_bottom = 50.0
+offset_right = 158.0
+offset_bottom = 52.0
 
 [node name="WaveLabel" type="Label" parent="CanvasLayer/WaveStats" unique_id=1563016323]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Wave: 9999"
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer/WaveStats" unique_id=1281204184]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("10_fbgn1")
+theme_override_font_sizes/font_size = 27
 text = "Time Left: 9999"
 
 [node name="QuitButton" type="TextureButton" parent="CanvasLayer" unique_id=1326282256]
@@ -617,7 +777,7 @@ gravity_scale = 0.0
 position = Vector2(1.9999995, 2.3841858e-07)
 scale = Vector2(5, 5)
 color = Color(1, 0, 0, 1)
-energy = 12.36
+energy = 6.23
 range_layer_min = -2
 texture = SubResource("GradientTexture2D_twgab")
 script = ExtResource("16_2wurs")
