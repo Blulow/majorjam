@@ -26,6 +26,7 @@
 [ext_resource type="FontFile" uid="uid://buq328gvtjmum" path="res://assets/fonts/BluFont.ttf" id="10_fbgn1"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="11_b5cym"]
 [ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="11_fbgn1"]
+[ext_resource type="Texture2D" uid="uid://crd3bfbdia4hy" path="res://assets/images/ui/game_title.png" id="12_2pvtu"]
 [ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="12_smf6k"]
 [ext_resource type="Script" uid="uid://ck3k2lind41v4" path="res://scripts/game/player/player_animator.gd" id="13_l78sk"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/game/rope.tscn" id="14_0qnm6"]
@@ -141,6 +142,18 @@ tracks/7/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Guide/GameTitle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(174, 8)]
+}
 
 [sub_resource type="Animation" id="Animation_smf6k"]
 resource_name = "start"
@@ -239,6 +252,18 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-170.35, 0), Vector2(2.565, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Guide/GameTitle:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(174, -176.805), Vector2(174, 7.805)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l78sk"]
@@ -551,7 +576,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 190.0
 offset_top = -92.0
-offset_right = 248.00061
+offset_right = 248.0
 offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -577,6 +602,26 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("5_wtjof")
+
+[node name="GameTitle" type="TextureRect" parent="Guide" unique_id=1429148709]
+material = SubResource("ShaderMaterial_emvee")
+instance_shader_parameters/alpha = 1.0
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_color = Color(1, 1, 1, 1)
+instance_shader_parameters/glow_intensity = 6.854000325565
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -306.0
+offset_top = -262.0
+offset_right = -123.0
+offset_bottom = -208.99994
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("12_2pvtu")
 
 [node name="Panel" type="Panel" parent="Guide" unique_id=361376186]
 modulate = Color(0.3203125, 0.3203125, 0.3203125, 1)
@@ -639,7 +684,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -169.0
-offset_right = 51.0
+offset_right = 51.000122
 offset_bottom = 164.0
 grow_horizontal = 0
 
