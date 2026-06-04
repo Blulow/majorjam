@@ -12,6 +12,9 @@ var target: Node2D
 
 func _ready() -> void:
 	target = body.target
+	if target:
+		dir = body.global_position.direction_to(target.global_position)
+	body.rotation = atan2(dir.y, dir.x)
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(body.target): return

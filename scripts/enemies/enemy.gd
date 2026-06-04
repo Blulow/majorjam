@@ -2,6 +2,11 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var target: Node2D
+@export var sprite: AnimatedSprite2D
+@export var fly_towards_movement: FlyTowardsMovement
 
 func _on_health_died() -> void:
+	fly_towards_movement.speed = 0.0
+	sprite.play("death")
+	await sprite.animation_finished
 	queue_free()

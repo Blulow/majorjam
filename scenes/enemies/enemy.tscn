@@ -2,19 +2,87 @@
 
 [ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="1_4ra3w"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://cmeq2hb3kae2g" path="res://assets/images/enemies/enemy.png" id="2_qch6t"]
+[ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="2_y5th1"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="3_5uy6h"]
+[ext_resource type="Texture2D" uid="uid://cp1ij1fi5ugid" path="res://assets/images/enemies/enemy_death.png" id="3_tihwb"]
 [ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_5uy6h"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="5_xwavj"]
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="6_nenq2"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="7_nenq2"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_n7575"]
 
-[sub_resource type="Gradient" id="Gradient_g2els"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tihwb"]
+shader = ExtResource("2_y5th1")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8tegq"]
-gradient = SubResource("Gradient_g2els")
-width = 32
-height = 32
+[sub_resource type="AtlasTexture" id="AtlasTexture_twn6s"]
+atlas = ExtResource("3_tihwb")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sb86v"]
+atlas = ExtResource("3_tihwb")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe3k2"]
+atlas = ExtResource("3_tihwb")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kugq1"]
+atlas = ExtResource("3_tihwb")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5th1"]
+atlas = ExtResource("2_qch6t")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tihwb"]
+atlas = ExtResource("2_qch6t")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7w77"]
+atlas = ExtResource("2_qch6t")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4gvh"]
+atlas = ExtResource("2_qch6t")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twn6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twn6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sb86v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe3k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kugq1")
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5th1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tihwb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7w77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k4gvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(32, 32)
@@ -25,13 +93,20 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(32, 32)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 groups=["enemy"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "fly_towards_movement") groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4ra3w")
+sprite = NodePath("Sprite2D")
+fly_towards_movement = NodePath("FlyTowardsMovement")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129537266]
-texture = SubResource("GradientTexture2D_8tegq")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=624964368]
+material = SubResource("ShaderMaterial_tihwb")
+instance_shader_parameters/glow_color = Color(0.90625, 0.31860352, 0, 1)
+rotation = 3.1415927
+sprite_frames = SubResource("SpriteFrames_twn6s")
+animation = &"death"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088048531]
 shape = SubResource("RectangleShape2D_7p1mj")

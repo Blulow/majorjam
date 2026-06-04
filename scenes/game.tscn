@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://d2uxbwoccdu1o" path="res://assets/resources/wave_patterns/wave_3.tres" id="16_bhx41"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="16_ssvqc"]
 [ext_resource type="Resource" uid="uid://dvp5nithcl5ex" path="res://assets/resources/build_cards/attack_increase.tres" id="17_264po"]
+[ext_resource type="Script" uid="uid://bj2gq1lwt5wbw" path="res://scripts/anchor_light.gd" id="17_gxtfn"]
 [ext_resource type="Resource" uid="uid://4nlxcoipaudb" path="res://assets/resources/build_cards/health_boost.tres" id="18_1kice"]
 [ext_resource type="Resource" uid="uid://cp71es3qmfwwd" path="res://assets/resources/wave_patterns/wave_4.tres" id="18_bhx41"]
 [ext_resource type="Resource" uid="uid://cho8r4i8ometm" path="res://assets/resources/wave_patterns/wave_5.tres" id="19_sww3w"]
@@ -34,44 +35,6 @@
 [ext_resource type="Resource" uid="uid://6agwcpkd2mrt" path="res://assets/resources/wave_patterns/wave_7.tres" id="21_suyxu"]
 [ext_resource type="Resource" uid="uid://cew1aw0uhnd3i" path="res://assets/resources/build_cards/lightning.tres" id="22_37s47"]
 [ext_resource type="Script" uid="uid://tu3rlu0tc37u" path="res://scripts/player_stats_updater.gd" id="23_bt5mj"]
-
-[sub_resource type="Animation" id="Animation_js0lu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 12)]
-}
-
-[sub_resource type="Animation" id="Animation_v2yb1"]
-resource_name = "anchor_pulse"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5, 3),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(5, 5), Vector2(10, 10), Vector2(5, 5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_js0lu"]
-_data = {
-&"RESET": SubResource("Animation_js0lu"),
-&"anchor_pulse": SubResource("Animation_v2yb1")
-}
 
 [sub_resource type="Gradient" id="Gradient_v2yb1"]
 colors = PackedColorArray(0.028930664, 0.17094707, 0.30859375, 1, 0.0134887695, 0.06848955, 0.1328125, 1)
@@ -126,11 +89,6 @@ glow_intensity = 0.88
 glow_strength = 1.72
 
 [node name="Game" type="Node2D" unique_id=1213886240]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=681238835]
-root_node = NodePath("../Arena/Anchor/AnchorLight")
-libraries/ = SubResource("AnimationLibrary_js0lu")
-autoplay = &"anchor_pulse"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
@@ -261,11 +219,12 @@ gravity_scale = 0.0
 
 [node name="AnchorLight" type="PointLight2D" parent="Arena/Anchor" unique_id=273963968]
 position = Vector2(1.9999995, 2.3841858e-07)
-scale = Vector2(12, 12)
+scale = Vector2(5, 5)
 color = Color(1, 0, 0, 1)
 energy = 12.36
 range_layer_min = -1
 texture = SubResource("GradientTexture2D_twgab")
+script = ExtResource("17_gxtfn")
 
 [node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("arena") instance=ExtResource("7_gee14")]
 arena = NodePath("../Arena")
@@ -291,3 +250,5 @@ card_count = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=896123048]
 environment = SubResource("Environment_v2yb1")
+
+[connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]
