@@ -15,7 +15,7 @@ var active: bool
 var duration_timer: float
 
 func _ready() -> void:
-	current_wave_index = 0
+	current_wave_index = 6
 	start_wave(wave_patterns[current_wave_index])
 
 func _process(delta: float) -> void:

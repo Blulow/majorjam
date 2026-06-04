@@ -3,6 +3,7 @@ class_name FlyTowardsMovement
 
 @export var body: Enemy
 @export var body_controller: BodyController
+@export var sprite: Node2D
 
 @export var SPEED = 300.0
 
@@ -14,7 +15,7 @@ func _ready() -> void:
 	target = body.target
 	if target:
 		dir = body.global_position.direction_to(target.global_position)
-	body.rotation = atan2(dir.y, dir.x)
+	sprite.rotation += atan2(dir.y, dir.x)
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(body.target): return

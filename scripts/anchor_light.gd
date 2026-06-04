@@ -8,7 +8,6 @@ func _ready() -> void:
 	anchor_pulse.tween_property(self, "scale", Vector2.ONE * 5, 1.5)
 
 func _on_anchor_hit() -> void:
-	print("e")
 	var danger_pulse: Tween = create_tween()
-	danger_pulse.tween_property(self, "color", Color(1, 0.1, 0.1), 0.5)
-	danger_pulse.tween_property(self, "color", Color(1, 0, 0), 0.5)
+	danger_pulse.tween_property(self, "color", Color(1, 0.1, 0.1), 0.2)
+	danger_pulse.tween_property(self, "color", Color(1, 0, 0), 0.2)

@@ -102,7 +102,7 @@ fly_towards_movement = NodePath("FlyTowardsMovement")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=624964368]
 material = SubResource("ShaderMaterial_tihwb")
-instance_shader_parameters/glow_color = Color(0.90625, 0.31860352, 0, 1)
+instance_shader_parameters/glow_color = Color(0, 0.90588236, 0.7997243, 1)
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_twn6s")
 animation = &"death"
@@ -115,9 +115,10 @@ shape = SubResource("RectangleShape2D_7p1mj")
 body = NodePath("..")
 gravity_on = false
 
-[node name="FlyTowardsMovement" parent="." unique_id=117864476 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("3_5uy6h")]
+[node name="FlyTowardsMovement" parent="." unique_id=117864476 node_paths=PackedStringArray("body", "body_controller", "sprite") instance=ExtResource("3_5uy6h")]
 body = NodePath("..")
 body_controller = NodePath("../BodyController")
+sprite = NodePath("../Sprite2D")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2053085264]
 rect = Rect2(-23, -23, 46, 46)

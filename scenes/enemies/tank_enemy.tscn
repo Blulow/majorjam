@@ -1,35 +1,112 @@
 [gd_scene format=3 uid="uid://d4mib6i4f3oan"]
 
 [ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="1_au67s"]
+[ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="2_0iv5n"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="2_sxe24"]
 [ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="3_0iv5n"]
+[ext_resource type="Texture2D" uid="uid://dpahovv1b05r8" path="res://assets/images/enemies/tank_enemy.png" id="3_ioeaq"]
+[ext_resource type="Texture2D" uid="uid://cuahdl61jhmty" path="res://assets/images/enemies/tank_enemy_death.png" id="3_t1dfq"]
 [ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="4_ioeaq"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_t1dfq"]
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="6_8xbsu"]
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="7_43ue2"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_3yxbw"]
 
-[sub_resource type="Gradient" id="Gradient_g2els"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t1dfq"]
+shader = ExtResource("2_0iv5n")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8tegq"]
-gradient = SubResource("Gradient_g2els")
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6w0m"]
+atlas = ExtResource("3_t1dfq")
+region = Rect2(0, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpe8b"]
+atlas = ExtResource("3_t1dfq")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbun4"]
+atlas = ExtResource("3_t1dfq")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk6d5"]
+atlas = ExtResource("3_t1dfq")
+region = Rect2(204, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xbsu"]
+atlas = ExtResource("3_ioeaq")
+region = Rect2(0, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ue2"]
+atlas = ExtResource("3_ioeaq")
+region = Rect2(68, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yxbw"]
+atlas = ExtResource("3_ioeaq")
+region = Rect2(136, 0, 68, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xp3oc"]
+atlas = ExtResource("3_ioeaq")
+region = Rect2(204, 0, 68, 68)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6w0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6w0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpe8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbun4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk6d5")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xbsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ue2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3yxbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xp3oc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
-size = Vector2(76, 78)
+size = Vector2(74, 74)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(64, 64)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 groups=["enemy"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "fly_towards_movement") groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_au67s")
+sprite = NodePath("Sprite2D")
+fly_towards_movement = NodePath("FlyTowardsMovement")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1129537266]
-texture = SubResource("GradientTexture2D_8tegq")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1593820751]
+material = SubResource("ShaderMaterial_t1dfq")
+instance_shader_parameters/glow_color = Color(0.08291626, 0.55859375, 0, 1)
+rotation = 3.1415927
+sprite_frames = SubResource("SpriteFrames_b6w0m")
+animation = &"death"
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1088048531]
 shape = SubResource("RectangleShape2D_7p1mj")
@@ -38,9 +115,10 @@ shape = SubResource("RectangleShape2D_7p1mj")
 body = NodePath("..")
 gravity_on = false
 
-[node name="FlyTowardsMovement" parent="." unique_id=117864476 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("3_0iv5n")]
+[node name="FlyTowardsMovement" parent="." unique_id=117864476 node_paths=PackedStringArray("body", "body_controller", "sprite") instance=ExtResource("3_0iv5n")]
 body = NodePath("..")
 body_controller = NodePath("../BodyController")
+sprite = NodePath("../Sprite2D")
 SPEED = 100.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2053085264]
@@ -50,7 +128,7 @@ script = ExtResource("4_ioeaq")
 [node name="Hitbox" parent="." unique_id=504625708 instance=ExtResource("5_t1dfq")]
 collision_layer = 8
 collision_mask = 8
-damage_amount = 10.0
+damage_amount = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=329620180]
 shape = SubResource("RectangleShape2D_md484")

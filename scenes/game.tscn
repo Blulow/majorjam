@@ -177,7 +177,7 @@ position = Vector2(570, -71)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arena/Player" unique_id=825846924]
 material = SubResource("ShaderMaterial_gxtfn")
 instance_shader_parameters/border_thickness = 2.000000095
-instance_shader_parameters/glow_color = Color(1, 0.9140625, 0, 1)
+instance_shader_parameters/glow_color = Color(1, 0, 0, 1)
 instance_shader_parameters/glow_intensity = 4.1110001952725
 position = Vector2(0, -3.814697e-06)
 scale = Vector2(1.0000025, 1)

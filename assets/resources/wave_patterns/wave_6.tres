@@ -1,57 +1,19 @@
 [gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://ybfdwdpc6j1d"]
 
 [ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_7c00p"]
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="2_ha6a2"]
-[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_hkfic"]
-[ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="4_c67hw"]
-[ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="5_srgj8"]
-[ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="6_p73cw"]
-[ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="7_a6fi0"]
-[ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="8_k5q2y"]
-[ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="9_7rch3"]
+[ext_resource type="PackedScene" uid="uid://bbsra1ldpwet7" path="res://scenes/enemies/enemy.tscn" id="2_oe8gb"]
 [ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="10_r78a1"]
 [ext_resource type="PackedScene" uid="uid://c6o862f3ivw0m" path="res://scenes/enemies/sucking_enemy.tscn" id="11_7c00p"]
 [ext_resource type="PackedScene" uid="uid://bc36mbj63xsdq" path="res://scenes/enemies/stun_enemy.tscn" id="12_e7jpr"]
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="13_2sl0x"]
 [ext_resource type="Script" uid="uid://bvhhsyy2ad1we" path="res://scripts/wave_patterns/stat_modifier.gd" id="14_wiymy"]
 
-[sub_resource type="Gradient" id="Gradient_g2els"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8tegq"]
-gradient = SubResource("Gradient_g2els")
-width = 32
-height = 32
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
-size = Vector2(32, 32)
-
-[sub_resource type="PackedScene" id="PackedScene_oxdcy"]
-_bundled = {
-"conn_count": 2,
-"conns": PackedInt32Array(1073741836, 1073741835, 38, 37, 2, 0, 0, 1073741838, 1073741837, 40, 39, 2, 0, 0),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Enemy", "CharacterBody2D", "enemy", "collision_layer", "collision_mask", "script", "Sprite2D", "Sprite2D", "texture", "CollisionShape2D", "CollisionShape2D", "shape", "BodyController", "body", "gravity_on", "FlyTowardsMovement", "body", "body_controller", "VisibleOnScreenNotifier2D", "VisibleOnScreenNotifier2D", "rect", "script", "Hitbox", "collision_layer", "collision_mask", "damage_amount", "CollisionShape2D", "CollisionShape2D", "shape", "Health", "Hurtbox", "health", "CollisionShape2D", "CollisionShape2D", "shape", "HealthBar", "health", "_on_screen_exited", "screen_exited", "_on_health_died", "died"),
-"node_count": 12,
-"node_ids": PackedInt32Array(1084182467, 1129537266, 1088048531, 22720870, 117864476, 2053085264, 504625708, 329620180, 509010372, 941001317, 1101894523, 2015454371),
-"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./Hitbox"), NodePath("."), NodePath("."), NodePath("./Hurtbox"), NodePath("."), NodePath("VisibleOnScreenNotifier2D"), NodePath("VisibleOnScreenNotifier2D"), NodePath("."), NodePath("Health")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 3, 0, 4, 1, 5, 2, 1, 2, 1073741824, 0, 7, 6, -1, 1, 8, 3, 0, 1073741825, 0, 10, 9, -1, 1, 11, 4, 0, 1073741826, 0, 2147483647, 12, 5, 2, 1073741837, 6, 14, 7, 0, 1073741827, 0, 2147483647, 15, 8, 2, 1073741840, 9, 1073741841, 10, 0, 1073741828, 0, 19, 18, -1, 2, 20, 11, 21, 12, 0, 1073741829, 0, 2147483647, 22, 13, 3, 23, 14, 24, 15, 25, 16, 0, 1073741830, 0, 27, 26, -1, 1, 28, 17, 0, 1073741831, 0, 2147483647, 29, 18, 0, 0, 1073741832, 0, 2147483647, 30, 19, 1, 1073741855, 20, 0, 1073741833, 0, 33, 32, -1, 1, 34, 21, 0, 1073741834, 0, 2147483647, 35, 22, 1, 1073741860, 23, 0),
-"variants": [2, 2, ExtResource("2_ha6a2"), SubResource("GradientTexture2D_8tegq"), SubResource("RectangleShape2D_7p1mj"), ExtResource("3_hkfic"), NodePath(".."), false, ExtResource("4_c67hw"), NodePath(".."), NodePath("../BodyController"), Rect2(-23, -23, 46, 46), ExtResource("5_srgj8"), ExtResource("6_p73cw"), 4, 4, 10.0, SubResource("RectangleShape2D_md484"), ExtResource("7_a6fi0"), ExtResource("8_k5q2y"), NodePath("../Health"), SubResource("RectangleShape2D_xwavj"), ExtResource("9_7rch3"), NodePath("../Health")],
-"version": 3
-}
-
 [sub_resource type="Resource" id="Resource_bduxp"]
 script = ExtResource("10_r78a1")
 
-[sub_resource type="Resource" id="Resource_7c00p"]
+[sub_resource type="Resource" id="Resource_1ih06"]
 script = ExtResource("1_7c00p")
-enemy_scene = SubResource("PackedScene_oxdcy")
+enemy_scene = ExtResource("2_oe8gb")
 weight = 40.0
 count = 20
 target = NodePath("Arena/Anchor")
@@ -100,6 +62,6 @@ wave_n = 6
 duration = 30.0
 interval = 1.0
 enemy_cap = 100
-pool = Array[ExtResource("1_7c00p")]([SubResource("Resource_7c00p"), SubResource("Resource_hkfic"), SubResource("Resource_c67hw")])
+pool = Array[ExtResource("1_7c00p")]([SubResource("Resource_1ih06"), SubResource("Resource_hkfic"), SubResource("Resource_c67hw")])
 stat_modifier = SubResource("Resource_srgj8")
 metadata/_custom_type_script = "uid://evrwgbfuh4eb"

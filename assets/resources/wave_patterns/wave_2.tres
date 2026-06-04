@@ -1,56 +1,18 @@
 [gd_resource type="Resource" script_class="WavePattern" format=3 uid="uid://dys8dicjfe5lm"]
 
 [ext_resource type="Script" uid="uid://di2kw8ergkm2g" path="res://scripts/wave_patterns/pool_data.gd" id="1_a11ki"]
-[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/enemies/enemy.gd" id="2_idu17"]
+[ext_resource type="PackedScene" uid="uid://bbsra1ldpwet7" path="res://scenes/enemies/enemy.tscn" id="2_7ae86"]
 [ext_resource type="Script" uid="uid://bexeratng4b6f" path="res://scripts/spawners/spawn_patterns/radial_spawn_pattern.gd" id="3_45bvu"]
-[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_kg41k"]
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="4_1hhts"]
-[ext_resource type="PackedScene" uid="uid://1aobupq5yn68" path="res://scenes/components/movement/fly_towards_movement.tscn" id="4_017wr"]
-[ext_resource type="Script" uid="uid://c4aawg2sg0yr4" path="res://scripts/free_on_exit.gd" id="5_83ylo"]
 [ext_resource type="Script" uid="uid://bvhhsyy2ad1we" path="res://scripts/wave_patterns/stat_modifier.gd" id="5_qs2qm"]
-[ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="6_nojuq"]
-[ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="7_6db2x"]
-[ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="8_fic8a"]
-[ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="9_o2txo"]
 [ext_resource type="PackedScene" uid="uid://d4mib6i4f3oan" path="res://scenes/enemies/tank_enemy.tscn" id="11_kg41k"]
-
-[sub_resource type="Gradient" id="Gradient_g2els"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_8tegq"]
-gradient = SubResource("Gradient_g2els")
-width = 32
-height = 32
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
-size = Vector2(32, 32)
-
-[sub_resource type="PackedScene" id="PackedScene_npc6k"]
-_bundled = {
-"conn_count": 2,
-"conns": PackedInt32Array(1073741836, 1073741835, 38, 37, 2, 0, 0, 1073741838, 1073741837, 40, 39, 2, 0, 0),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("Enemy", "CharacterBody2D", "enemy", "collision_layer", "collision_mask", "script", "Sprite2D", "Sprite2D", "texture", "CollisionShape2D", "CollisionShape2D", "shape", "BodyController", "body", "gravity_on", "FlyTowardsMovement", "body", "body_controller", "VisibleOnScreenNotifier2D", "VisibleOnScreenNotifier2D", "rect", "script", "Hitbox", "collision_layer", "collision_mask", "damage_amount", "CollisionShape2D", "CollisionShape2D", "shape", "Health", "Hurtbox", "health", "CollisionShape2D", "CollisionShape2D", "shape", "HealthBar", "health", "_on_screen_exited", "screen_exited", "_on_health_died", "died"),
-"node_count": 12,
-"node_ids": PackedInt32Array(1084182467, 1129537266, 1088048531, 22720870, 117864476, 2053085264, 504625708, 329620180, 509010372, 941001317, 1101894523, 2015454371),
-"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./Hitbox"), NodePath("."), NodePath("."), NodePath("./Hurtbox"), NodePath("."), NodePath("VisibleOnScreenNotifier2D"), NodePath("VisibleOnScreenNotifier2D"), NodePath("."), NodePath("Health")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 3, 3, 0, 4, 1, 5, 2, 1, 2, 1073741824, 0, 7, 6, -1, 1, 8, 3, 0, 1073741825, 0, 10, 9, -1, 1, 11, 4, 0, 1073741826, 0, 2147483647, 12, 5, 2, 1073741837, 6, 14, 7, 0, 1073741827, 0, 2147483647, 15, 8, 2, 1073741840, 9, 1073741841, 10, 0, 1073741828, 0, 19, 18, -1, 2, 20, 11, 21, 12, 0, 1073741829, 0, 2147483647, 22, 13, 3, 23, 14, 24, 15, 25, 16, 0, 1073741830, 0, 27, 26, -1, 1, 28, 17, 0, 1073741831, 0, 2147483647, 29, 18, 0, 0, 1073741832, 0, 2147483647, 30, 19, 1, 1073741855, 20, 0, 1073741833, 0, 33, 32, -1, 1, 34, 21, 0, 1073741834, 0, 2147483647, 35, 22, 1, 1073741860, 23, 0),
-"variants": [2, 2, ExtResource("2_idu17"), SubResource("GradientTexture2D_8tegq"), SubResource("RectangleShape2D_7p1mj"), ExtResource("3_kg41k"), NodePath(".."), false, ExtResource("4_017wr"), NodePath(".."), NodePath("../BodyController"), Rect2(-23, -23, 46, 46), ExtResource("5_83ylo"), ExtResource("6_nojuq"), 4, 4, 10.0, SubResource("RectangleShape2D_md484"), ExtResource("7_6db2x"), ExtResource("8_fic8a"), NodePath("../Health"), SubResource("RectangleShape2D_xwavj"), ExtResource("9_o2txo"), NodePath("../Health")],
-"version": 3
-}
 
 [sub_resource type="Resource" id="Resource_bduxp"]
 script = ExtResource("3_45bvu")
 
-[sub_resource type="Resource" id="Resource_kg41k"]
+[sub_resource type="Resource" id="Resource_45bvu"]
 script = ExtResource("1_a11ki")
-enemy_scene = SubResource("PackedScene_npc6k")
+enemy_scene = ExtResource("2_7ae86")
 weight = 80.0
 count = 20
 target = NodePath("Arena/Anchor")
@@ -61,7 +23,7 @@ metadata/_custom_type_script = "uid://di2kw8ergkm2g"
 script = ExtResource("3_45bvu")
 metadata/_custom_type_script = "uid://bexeratng4b6f"
 
-[sub_resource type="Resource" id="Resource_017wr"]
+[sub_resource type="Resource" id="Resource_1hhts"]
 script = ExtResource("1_a11ki")
 enemy_scene = ExtResource("11_kg41k")
 weight = 20.0
@@ -82,6 +44,6 @@ wave_n = 2
 duration = 20.0
 interval = 1.0
 enemy_cap = 100
-pool = Array[ExtResource("1_a11ki")]([SubResource("Resource_kg41k"), SubResource("Resource_017wr")])
+pool = Array[ExtResource("1_a11ki")]([SubResource("Resource_45bvu"), SubResource("Resource_1hhts")])
 stat_modifier = SubResource("Resource_nojuq")
 metadata/_custom_type_script = "uid://evrwgbfuh4eb"
