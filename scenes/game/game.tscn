@@ -99,6 +99,7 @@ fill_to = Vector2(0.90434784, 0.14782609)
 zoom = Vector2(0.5, 0.5)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1237647611]
+process_mode = 3
 stream = ExtResource("1_b7fhm")
 autoplay = true
 parameters/looping = true
@@ -348,7 +349,6 @@ body_controller = NodePath("../BodyController")
 rope_dash_movement = NodePath("../RopeDashMovement")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Arena/Player" unique_id=184688399 node_paths=PackedStringArray("death_screen", "audio", "anchor")]
-process_mode = 3
 rect = Rect2(-26, -43, 52, 86)
 script = ExtResource("15_0gkf7")
 death_screen = NodePath("../../../CanvasLayer/DeathScreen")
