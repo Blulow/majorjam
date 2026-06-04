@@ -10,9 +10,6 @@ class_name ControlledMovement
 var speed: float = SPEED
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("jump") and body.is_on_floor():
-		body_controller.internal_vel.y = JUMP_VELOCITY
-
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		body_controller.internal_vel.x = direction * speed

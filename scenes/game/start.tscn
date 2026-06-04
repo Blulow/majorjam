@@ -1,0 +1,466 @@
+[gd_scene format=3 uid="uid://bdkapwpvsr0r2"]
+
+[ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/ui/game_menu.gd" id="1_ex6di"]
+[ext_resource type="Texture2D" uid="uid://dm7m4b07fdb1t" path="res://assets/images/ui/keybinds_guide1.png" id="3_ex6di"]
+[ext_resource type="Texture2D" uid="uid://b7mrg3r6wteub" path="res://assets/images/ui/keybinds_guide2.png" id="4_7ndx4"]
+[ext_resource type="Texture2D" uid="uid://b2dm4oenpbdrn" path="res://assets/images/ui/message1.png" id="4_emvee"]
+[ext_resource type="PackedScene" uid="uid://d0qsxl5ra6nui" path="res://scenes/game/player.tscn" id="4_wtjof"]
+[ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="5_ffns3"]
+[ext_resource type="Texture2D" uid="uid://d3jnx3oetdbu1" path="res://assets/images/ui/message2.png" id="5_wtjof"]
+[ext_resource type="Texture2D" uid="uid://d2dlr33xjon6v" path="res://assets/images/ui/play.png" id="6_dmw7s"]
+[ext_resource type="Texture2D" uid="uid://ixogo4uabet7" path="res://assets/images/player/player_dash.png" id="6_myded"]
+[ext_resource type="Texture2D" uid="uid://cmeq2hb3kae2g" path="res://assets/images/enemies/enemy.png" id="6_wtjof"]
+[ext_resource type="Texture2D" uid="uid://dbv27qsql3mxk" path="res://assets/images/ui/play2.png" id="7_b5cym"]
+[ext_resource type="Texture2D" uid="uid://d2vmnorl60evo" path="res://assets/images/player/player_idle.png" id="7_tw6uv"]
+[ext_resource type="Texture2D" uid="uid://bjn27iqngc23i" path="res://assets/images/player/player_run.png" id="8_kj5nw"]
+[ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/movement/rope_dash_movement.tscn" id="9_xaw65"]
+[ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="10_dmw7s"]
+[ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="11_b5cym"]
+[ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="12_smf6k"]
+[ext_resource type="Script" uid="uid://ck3k2lind41v4" path="res://scripts/game/player/player_animator.gd" id="13_l78sk"]
+[ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/game/rope.tscn" id="14_0qnm6"]
+[ext_resource type="PackedScene" uid="uid://bgmor4w06xkc5" path="res://scenes/game/anchor.tscn" id="15_fbgn1"]
+[ext_resource type="Script" uid="uid://bj2gq1lwt5wbw" path="res://scripts/game/anchor/anchor_light.gd" id="16_2wurs"]
+[ext_resource type="Script" uid="uid://cct6jxwkm20m" path="res://scripts/game/enemies/enemy.gd" id="19_tw6uv"]
+[ext_resource type="Texture2D" uid="uid://cp1ij1fi5ugid" path="res://assets/images/enemies/enemy_death.png" id="20_xaw65"]
+[ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="21_kj5nw"]
+[ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="22_xaw65"]
+[ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="23_kj5nw"]
+
+[sub_resource type="Environment" id="Environment_v2yb1"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.88
+glow_strength = 1.72
+
+[sub_resource type="Animation" id="Animation_b5cym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guide/Panel/TextureButton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_smf6k"]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Guide/Panel/TextureButton:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l78sk"]
+_data = {
+&"RESET": SubResource("Animation_b5cym"),
+&"start": SubResource("Animation_smf6k")
+}
+
+[sub_resource type="Gradient" id="Gradient_v2yb1"]
+colors = PackedColorArray(0.028930664, 0.17094707, 0.30859375, 1, 0.0134887695, 0.06848955, 0.1328125, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_js0lu"]
+gradient = SubResource("Gradient_v2yb1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_emvee"]
+shader = ExtResource("5_ffns3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qnm6"]
+shader = ExtResource("5_ffns3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxtfn"]
+shader = ExtResource("5_ffns3")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxtfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_myded")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_tw6uv")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_kj5nw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_gxtfn"]
+interpolation_mode = 2
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_twgab"]
+gradient = SubResource("Gradient_gxtfn")
+fill = 1
+fill_from = Vector2(0.526087, 0.526087)
+fill_to = Vector2(0.90434784, 0.14782609)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ffns3"]
+shader = ExtResource("5_ffns3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmw7s"]
+atlas = ExtResource("20_xaw65")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5cym"]
+atlas = ExtResource("20_xaw65")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smf6k"]
+atlas = ExtResource("20_xaw65")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l78sk"]
+atlas = ExtResource("20_xaw65")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myded"]
+atlas = ExtResource("6_wtjof")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw6uv"]
+atlas = ExtResource("6_wtjof")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj5nw"]
+atlas = ExtResource("6_wtjof")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xaw65"]
+atlas = ExtResource("6_wtjof")
+region = Rect2(108, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmw7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmw7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5cym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smf6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l78sk")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myded")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw6uv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj5nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xaw65")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw65"]
+size = Vector2(32, 32)
+
+[node name="Game" type="Node2D" unique_id=1213886240]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
+zoom = Vector2(0.5, 0.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=896123048]
+environment = SubResource("Environment_v2yb1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=771240105]
+libraries/ = SubResource("AnimationLibrary_l78sk")
+autoplay = &"start"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1788903923]
+layer = -2
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground" unique_id=54093201]
+modulate = Color(0.84947944, 0.84947944, 0.84947944, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -690.0
+offset_top = -414.0
+offset_right = -626.0
+offset_bottom = -350.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(22.03125, 13.281251)
+texture = SubResource("GradientTexture2D_js0lu")
+
+[node name="Guide" type="CanvasLayer" parent="." unique_id=92814761]
+layer = -1
+
+[node name="KeybindsGuide" type="TextureRect" parent="Guide" unique_id=1539276212]
+material = SubResource("ShaderMaterial_emvee")
+instance_shader_parameters/alpha = 0.70000001043084
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_color = Color(1, 0.3019608, 0, 1)
+instance_shader_parameters/glow_intensity = 6.854000325565
+offset_left = 18.0
+offset_top = 77.0
+offset_right = 130.0
+offset_bottom = 189.0
+scale = Vector2(3, 3)
+texture = ExtResource("3_ex6di")
+
+[node name="KeybindsGuide2" type="TextureRect" parent="Guide" unique_id=1816907452]
+material = SubResource("ShaderMaterial_emvee")
+instance_shader_parameters/alpha = 0.70000001043084
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_intensity = 6.000000285
+offset_left = 685.0
+offset_top = 285.0
+offset_right = 747.0
+offset_bottom = 305.0
+scale = Vector2(3, 3)
+texture = ExtResource("4_7ndx4")
+
+[node name="MessageGuide" type="TextureRect" parent="Guide" unique_id=211973419]
+material = SubResource("ShaderMaterial_emvee")
+instance_shader_parameters/alpha = 0.5000000074506
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_color = Color(1, 0.515625, 0, 1)
+instance_shader_parameters/glow_intensity = 6.000000285
+offset_left = 658.0
+offset_top = 197.0
+offset_right = 719.0
+offset_bottom = 209.0
+scale = Vector2(3, 3)
+texture = ExtResource("4_emvee")
+
+[node name="MessageGuide2" type="TextureRect" parent="Guide" unique_id=190797832]
+material = SubResource("ShaderMaterial_emvee")
+instance_shader_parameters/alpha = 0.70000001043084
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_color = Color(0.3359375, 1, 0, 1)
+instance_shader_parameters/glow_intensity = 6.000000285
+offset_left = 231.0
+offset_top = 445.09872
+offset_right = 381.0
+offset_bottom = 452.09872
+scale = Vector2(3, 3)
+texture = ExtResource("5_wtjof")
+
+[node name="Panel" type="Panel" parent="Guide" unique_id=361376186]
+modulate = Color(0.3203125, 0.3203125, 0.3203125, 1)
+offset_left = 302.0
+offset_top = 377.0
+offset_right = 554.0
+offset_bottom = 531.0
+
+[node name="TextureButton" type="TextureButton" parent="Guide/Panel" unique_id=2094210322]
+modulate = Color(0.9217038, 0.9217038, 0.9217038, 1)
+material = SubResource("ShaderMaterial_0qnm6")
+instance_shader_parameters/glow_color = Color(0.14050013, 0.58456355, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -43.901314
+offset_right = 91.0
+offset_bottom = 40.098686
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.6213973, 1.6213973)
+pivot_offset = Vector2(42, 42)
+texture_normal = ExtResource("6_dmw7s")
+
+[node name="MessageGuide3" type="TextureRect" parent="Guide/Panel" unique_id=1765404291]
+material = SubResource("ShaderMaterial_emvee")
+instance_shader_parameters/alpha = 0.70000001043084
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_color = Color(0.3359375, 1, 0, 1)
+instance_shader_parameters/glow_intensity = 6.000000285
+layout_mode = 0
+offset_left = 4.0
+offset_top = 51.098724
+offset_right = 35.0
+offset_bottom = 67.098724
+scale = Vector2(3, 3)
+texture = ExtResource("7_b5cym")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("anchor", "rope", "player")]
+script = ExtResource("1_ex6di")
+anchor = NodePath("../Arena/Anchor")
+rope = NodePath("../Arena/Rope")
+player = NodePath("../Arena/Player")
+
+[node name="Stats" type="VBoxContainer" parent="CanvasLayer" unique_id=1859601827]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/Stats" unique_id=462564084]
+layout_mode = 2
+text = "Health: 9999"
+horizontal_alignment = 2
+
+[node name="DamageLabel" type="Label" parent="CanvasLayer/Stats" unique_id=1844383330]
+layout_mode = 2
+text = "Damage: 9999"
+horizontal_alignment = 2
+
+[node name="MaxSpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=845199681]
+layout_mode = 2
+text = "Max Speed: 9999"
+horizontal_alignment = 2
+
+[node name="DashSpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=520772710]
+layout_mode = 2
+text = "Dash Speed: 9999"
+horizontal_alignment = 2
+
+[node name="SpeedLabel" type="Label" parent="CanvasLayer/Stats" unique_id=780222820]
+layout_mode = 2
+text = "Dash Speed: 9999"
+horizontal_alignment = 2
+
+[node name="LightningCountLabel" type="Label" parent="CanvasLayer/Stats" unique_id=711434102]
+layout_mode = 2
+text = "Lightning Count: 9999"
+horizontal_alignment = 2
+
+[node name="WaveStats" type="VBoxContainer" parent="CanvasLayer" unique_id=1679928384]
+offset_right = 88.0
+offset_bottom = 50.0
+
+[node name="WaveLabel" type="Label" parent="CanvasLayer/WaveStats" unique_id=1563016323]
+layout_mode = 2
+text = "Wave: 9999"
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/WaveStats" unique_id=1281204184]
+layout_mode = 2
+text = "Time Left: 9999"
+
+[node name="Arena" type="Node2D" parent="." unique_id=1321402845]
+process_mode = 1
+
+[node name="Player" parent="Arena" unique_id=477849407 instance=ExtResource("4_wtjof")]
+z_index = 1
+position = Vector2(570, -71)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arena/Player" unique_id=825846924]
+material = SubResource("ShaderMaterial_gxtfn")
+instance_shader_parameters/border_thickness = 2.000000095
+instance_shader_parameters/glow_color = Color(1, 0, 0, 1)
+instance_shader_parameters/glow_intensity = 4.1110001952725
+position = Vector2(0, -3.814697e-06)
+scale = Vector2(1.0000025, 1)
+sprite_frames = SubResource("SpriteFrames_gxtfn")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="RopeDashMovement" parent="Arena/Player" unique_id=1115222186 node_paths=PackedStringArray("rope", "body_controller") instance=ExtResource("9_xaw65")]
+rope = NodePath("../../Rope")
+body_controller = NodePath("../BodyController")
+
+[node name="BodyController" parent="Arena/Player" unique_id=22720870 node_paths=PackedStringArray("body") instance=ExtResource("10_dmw7s")]
+body = NodePath("..")
+
+[node name="ControlledMovement" parent="Arena/Player" unique_id=935498531 node_paths=PackedStringArray("body", "body_controller") instance=ExtResource("11_b5cym")]
+body = NodePath("..")
+body_controller = NodePath("../BodyController")
+
+[node name="SpeedLimit" parent="Arena/Player" unique_id=235116759 node_paths=PackedStringArray("body_controller") instance=ExtResource("12_smf6k")]
+max_speed = 5000.0
+body_controller = NodePath("../BodyController")
+
+[node name="PlayerAnimator" type="Node2D" parent="Arena/Player" unique_id=1766996153 node_paths=PackedStringArray("sprite", "body_controller", "rope_dash_movement")]
+script = ExtResource("13_l78sk")
+sprite = NodePath("../AnimatedSprite2D")
+body_controller = NodePath("../BodyController")
+rope_dash_movement = NodePath("../RopeDashMovement")
+
+[node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "arena") instance=ExtResource("14_0qnm6")]
+obj1 = NodePath("../Player")
+obj2 = NodePath("../Anchor/RopeEnd")
+arena = NodePath("..")
+
+[node name="Anchor" parent="Arena" unique_id=2015515689 instance=ExtResource("15_fbgn1")]
+
+[node name="RopeEnd" type="RigidBody2D" parent="Arena/Anchor" unique_id=157808127]
+gravity_scale = 0.0
+
+[node name="AnchorLight" type="PointLight2D" parent="Arena/Anchor" unique_id=273963968]
+position = Vector2(1.9999995, 2.3841858e-07)
+scale = Vector2(5, 5)
+color = Color(1, 0, 0, 1)
+energy = 12.36
+range_layer_min = -2
+texture = SubResource("GradientTexture2D_twgab")
+script = ExtResource("16_2wurs")
+
+[node name="SampleEnemy" type="CharacterBody2D" parent="Arena" unique_id=2125225629 node_paths=PackedStringArray("sprite")]
+position = Vector2(848.99994, -122.99999)
+scale = Vector2(3.9248672, 3.9248672)
+script = ExtResource("19_tw6uv")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arena/SampleEnemy" unique_id=726241207]
+material = SubResource("ShaderMaterial_ffns3")
+instance_shader_parameters/alpha = 0.70000001043084
+instance_shader_parameters/glow_color = Color(0, 1, 0.015625, 1)
+sprite_frames = SubResource("SpriteFrames_dmw7s")
+animation = &"death"
+autoplay = "default"
+
+[node name="Health" parent="Arena/SampleEnemy" unique_id=509010372 instance=ExtResource("21_kj5nw")]
+
+[node name="Hurtbox" parent="Arena/SampleEnemy" unique_id=941001317 node_paths=PackedStringArray("health") instance=ExtResource("22_xaw65")]
+health = NodePath("../Health")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena/SampleEnemy/Hurtbox" unique_id=1274770401]
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_xaw65")
+
+[node name="HealthBar" parent="Arena/SampleEnemy" unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("23_kj5nw")]
+health = NodePath("../Health")
+
+[connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]
+[connection signal="died" from="Arena/SampleEnemy/Health" to="Arena/SampleEnemy" method="_on_health_died"]

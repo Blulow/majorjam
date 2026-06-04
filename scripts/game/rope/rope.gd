@@ -15,9 +15,11 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	context.enemy = area.get_parent()
 	context.arena = arena
 	context.rope = self
-	build_applier.on_hit(context)
+	if build_applier:
+		build_applier.on_hit(context)
 
 func _process(delta: float) -> void:
 	var context: CombatContext = CombatContext.new()
 	context.delta = delta
-	build_applier.on_tick(context)
+	if build_applier:
+		build_applier.on_tick(context)

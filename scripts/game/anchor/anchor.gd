@@ -11,5 +11,4 @@ func _on_health_died() -> void:
 	queue_free()
 
 func _on_health_hit() -> void:
-	print("e")
 	hit.emit()

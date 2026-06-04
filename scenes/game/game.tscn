@@ -36,6 +36,12 @@
 [ext_resource type="Resource" uid="uid://cew1aw0uhnd3i" path="res://assets/resources/build_cards/lightning.tres" id="22_37s47"]
 [ext_resource type="Script" uid="uid://tu3rlu0tc37u" path="res://scripts/game/player_stats_updater.gd" id="23_bt5mj"]
 
+[sub_resource type="Environment" id="Environment_v2yb1"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.88
+glow_strength = 1.72
+
 [sub_resource type="Gradient" id="Gradient_v2yb1"]
 colors = PackedColorArray(0.028930664, 0.17094707, 0.30859375, 1, 0.0134887695, 0.06848955, 0.1328125, 1)
 
@@ -82,16 +88,13 @@ fill = 1
 fill_from = Vector2(0.526087, 0.526087)
 fill_to = Vector2(0.90434784, 0.14782609)
 
-[sub_resource type="Environment" id="Environment_v2yb1"]
-background_mode = 3
-glow_enabled = true
-glow_intensity = 0.88
-glow_strength = 1.72
-
 [node name="Game" type="Node2D" unique_id=1213886240]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=896123048]
+environment = SubResource("Environment_v2yb1")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1788903923]
 layer = -1
@@ -108,10 +111,11 @@ anchor = NodePath("../Arena/Anchor")
 rope = NodePath("../Arena/Rope")
 player = NodePath("../Arena/Player")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("wave_manager", "anchor", "player")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1201282571 node_paths=PackedStringArray("wave_manager", "anchor", "rope", "player")]
 script = ExtResource("11_kvpfn")
 wave_manager = NodePath("../WaveManager")
 anchor = NodePath("../Arena/Anchor")
+rope = NodePath("../Arena/Rope")
 player = NodePath("../Arena/Player")
 
 [node name="Stats" type="VBoxContainer" parent="CanvasLayer" unique_id=1859601827]
@@ -247,8 +251,5 @@ build_builder = NodePath("../CanvasLayer/BuildBuilder")
 build_applier = NodePath("../BuildApplier")
 registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice"), ExtResource("20_5newe"), ExtResource("21_37s47"), ExtResource("22_37s47")])
 card_count = 3
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=896123048]
-environment = SubResource("Environment_v2yb1")
 
 [connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]
