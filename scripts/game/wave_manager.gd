@@ -4,9 +4,11 @@ class_name WaveManager
 @export var wave_patterns: Array[WavePattern]
 @export var enemy_spawner: EnemySpawner
 @export var build_applier: BuildApplier
+@export var win_screen: Control
 
 signal wave_start(wave_n)
 signal wave_stop
+signal win
 
 var wave_pattern: WavePattern
 var wave_n: int
@@ -15,7 +17,7 @@ var active: bool
 var duration_timer: float
 
 func _ready() -> void:
-	current_wave_index = 0
+	current_wave_index = 6
 	start_wave(wave_patterns[current_wave_index])
 
 func _process(delta: float) -> void:
@@ -27,6 +29,10 @@ func _process(delta: float) -> void:
 		active = false
 		enemy_spawner.active = false
 		current_wave_index += 1
+		if current_wave_index >= len(wave_patterns):
+			win.emit()
+			active = false
+			return
 		wave_stop.emit()
 		get_tree().paused = true
 
@@ -45,3 +51,12 @@ func start_wave(_wave_pattern: WavePattern):
 	enemy_spawner.active = active
 	
 	wave_start.emit(wave_n)
+
+func _on_win() -> void:
+	get_tree().paused = true
+	
+	var anim: AnimationPlayer = win_screen.get_node("AnimationPlayer")
+	
+	win_screen.visible = true
+	
+	anim.play("win_screen")

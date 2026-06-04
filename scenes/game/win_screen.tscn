@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://pumbequscbpq"]
+[gd_scene format=3 uid="uid://d3gx34dqro1iu"]
 
-[ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="1_nt8uq"]
-[ext_resource type="Texture2D" uid="uid://i7bifikeswey" path="res://assets/images/ui/you_died.png" id="2_aae5y"]
-[ext_resource type="Texture2D" uid="uid://d2dlr33xjon6v" path="res://assets/images/ui/play.png" id="3_st04b"]
-[ext_resource type="Script" uid="uid://b6vm41orf6qcj" path="res://scripts/game/play_button.gd" id="4_553pn"]
-[ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="5_aae5y"]
-[ext_resource type="Texture2D" uid="uid://dyo8h7vd6o00r" path="res://assets/images/ui/quit_game.png" id="5_st04b"]
+[ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="1_oropq"]
+[ext_resource type="Texture2D" uid="uid://cgyd3lrd4ll50" path="res://assets/images/ui/you_win.png" id="2_oropq"]
+[ext_resource type="Texture2D" uid="uid://d2dlr33xjon6v" path="res://assets/images/ui/play.png" id="3_346ot"]
+[ext_resource type="Script" uid="uid://b6vm41orf6qcj" path="res://scripts/game/play_button.gd" id="4_rx3po"]
+[ext_resource type="Texture2D" uid="uid://dyo8h7vd6o00r" path="res://assets/images/ui/quit_game.png" id="5_346ot"]
+[ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="5_suqxs"]
 
 [sub_resource type="Animation" id="Animation_nt8uq"]
-length = 0.6333333
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(101, -179.825)]
+"values": [Vector2(169, -179.875)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -43,47 +43,23 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(625.915, 647.145)]
+"values": [Vector2(438, 647.145)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel/WaveLabel:position")
+tracks/3/path = NodePath("Panel/QuitButton:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-347.95, 199.585)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel/WaveLabel2:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Panel/QuitButton:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(113, 501)]
+"values": [Vector2(772, 498)]
 }
 
 [sub_resource type="Animation" id="Animation_aae5y"]
-resource_name = "death_screen"
+resource_name = "win_screen"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -94,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.36666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(101, -179.825), Vector2(101, 31.045)]
+"values": [Vector2(169, -179.825), Vector2(169, 31.045)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -115,64 +91,37 @@ tracks/2/path = NodePath("Panel/PlayButton:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.36666667),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(625.915, 647.145), Vector2(625.915, 362.985)]
+"values": [Vector2(438, 647.145), Vector2(438, 362.985)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Panel/WaveLabel:position")
+tracks/3/path = NodePath("Panel/QuitButton:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.16666667, 0.36666667),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-347.95, 199.585), Vector2(116.04, 268.29)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel/WaveLabel2:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.6666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Panel/QuitButton:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.36666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(113, 570.005), Vector2(113, 498.045)]
+"values": [Vector2(112, 580.795), Vector2(112, 488.37)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_st04b"]
 _data = {
 &"RESET": SubResource("Animation_nt8uq"),
-&"death_screen": SubResource("Animation_aae5y")
+&"win_screen": SubResource("Animation_aae5y")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wprgk"]
-shader = ExtResource("1_nt8uq")
+shader = ExtResource("1_oropq")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gyr0l"]
-shader = ExtResource("1_nt8uq")
+shader = ExtResource("1_oropq")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_553pn"]
-shader = ExtResource("1_nt8uq")
-
-[node name="DeathScreen" type="Control" unique_id=79664694]
+[node name="WinScreen" type="Control" unique_id=79664694]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
@@ -188,23 +137,23 @@ offset_bottom = 540.0
 
 [node name="TextureRect" type="TextureRect" parent="Panel" unique_id=714384480]
 material = SubResource("ShaderMaterial_wprgk")
-instance_shader_parameters/glow_color = Color(1, 0, 0, 1)
+instance_shader_parameters/glow_color = Color(0, 1, 0.390625, 1)
 instance_shader_parameters/glow_intensity = 6.000000285
 layout_mode = 0
-offset_left = 101.0
-offset_top = -179.825
-offset_right = 385.0
-offset_bottom = -123.82497
+offset_left = 169.0
+offset_top = -179.875
+offset_right = 411.0
+offset_bottom = -123.875
 scale = Vector2(2.6024063, 2.6024063)
-texture = ExtResource("2_aae5y")
+texture = ExtResource("2_oropq")
 
 [node name="Label" type="RichTextLabel" parent="Panel" unique_id=2105317880]
 layout_mode = 0
-offset_left = 158.0
-offset_top = 209.0
-offset_right = 806.0
-offset_bottom = 232.0
-text = "they say sometimes dying is where you learn something new, if you can come back"
+offset_left = 327.0
+offset_top = 225.0
+offset_right = 633.0
+offset_bottom = 248.0
+text = "well, winning makes you happy, i guess"
 visible_characters = 0
 visible_ratio = 0.0
 
@@ -219,21 +168,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 145.91498
+offset_left = -42.0
 offset_top = 377.14502
-offset_right = 229.91522
-offset_bottom = 461.14502
+offset_right = 42.000244
+offset_bottom = 461.14526
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.4800017, 2.4800017)
 pivot_offset = Vector2(42, 42)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("3_st04b")
-script = ExtResource("4_553pn")
+texture_normal = ExtResource("3_346ot")
+script = ExtResource("4_rx3po")
 
-[node name="QuitButton" type="TextureButton" parent="Panel" unique_id=1728715626]
+[node name="QuitButton" type="TextureButton" parent="Panel" unique_id=521600474]
 modulate = Color(0.9217038, 0.9217038, 0.9217038, 1)
-material = SubResource("ShaderMaterial_553pn")
+material = SubResource("ShaderMaterial_gyr0l")
 instance_shader_parameters/border_thickness = 1.0000000475
 instance_shader_parameters/glow_color = Color(0.14050013, 0.58456355, 0, 1)
 instance_shader_parameters/glow_intensity = 6.000000285
@@ -243,37 +192,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -367.0
-offset_top = 231.0
-offset_right = -293.0
-offset_bottom = 243.0
+offset_left = 292.0
+offset_top = 228.0
+offset_right = 366.0
+offset_bottom = 240.00012
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3.770668, 3.770668)
 pivot_offset = Vector2(37, 6)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("5_st04b")
-script = ExtResource("5_aae5y")
-
-[node name="WaveLabel" type="Label" parent="Panel" unique_id=1901139216]
-layout_mode = 0
-offset_left = -347.95
-offset_top = 199.585
-offset_right = -42.950012
-offset_bottom = 253.58522
-theme_override_font_sizes/font_size = 39
-text = "Waves survived:"
-
-[node name="WaveLabel2" type="Label" parent="Panel" unique_id=334556615]
-visible = false
-layout_mode = 0
-offset_left = 153.0
-offset_top = 307.0
-offset_right = 393.0
-offset_bottom = 451.0
-theme_override_font_sizes/font_size = 105
-text = "9999"
-horizontal_alignment = 1
+texture_normal = ExtResource("5_346ot")
+script = ExtResource("5_suqxs")
 
 [connection signal="button_down" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_button_down"]
 [connection signal="button_up" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_button_up"]

@@ -14,8 +14,6 @@ func _on_screen_exited() -> void:
 	death_screen.get_node("Panel/WaveLabel2").text = str(PlayerStats.WAVE_N - 1)
 	
 	var anim: AnimationPlayer = death_screen.get_node("AnimationPlayer")
-	anim.stop()
-	anim.seek(0.0)
 	
 	death_screen.visible = true
 	anim.play("death_screen")

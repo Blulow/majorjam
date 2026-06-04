@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://pumbequscbpq" path="res://scenes/game/death_screen.tscn" id="5_6ehwc"]
 [ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="6_js0lu"]
+[ext_resource type="PackedScene" uid="uid://d3gx34dqro1iu" path="res://scenes/game/win_screen.tscn" id="6_tyhjx"]
 [ext_resource type="PackedScene" uid="uid://bx112x7jc0xs2" path="res://scenes/spawners/enemy_spawner.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="8_264po"]
 [ext_resource type="Script" uid="uid://ie2sruuvnn2a" path="res://scripts/game/wave_manager.gd" id="8_gee14"]
@@ -176,6 +177,9 @@ build_card_scene = ExtResource("3_ca42v")
 [node name="DeathScreen" parent="CanvasLayer" unique_id=79664694 instance=ExtResource("5_6ehwc")]
 visible = false
 
+[node name="WinScreen" parent="CanvasLayer" unique_id=333005138 instance=ExtResource("6_tyhjx")]
+visible = false
+
 [node name="Arena" type="Node2D" parent="." unique_id=1321402845]
 process_mode = 1
 
@@ -244,11 +248,12 @@ script = ExtResource("17_gxtfn")
 [node name="EnemySpawner" parent="." unique_id=1446661225 node_paths=PackedStringArray("arena") instance=ExtResource("7_gee14")]
 arena = NodePath("../Arena")
 
-[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier")]
+[node name="WaveManager" type="Node2D" parent="." unique_id=973769624 node_paths=PackedStringArray("enemy_spawner", "build_applier", "win_screen")]
 script = ExtResource("8_gee14")
 wave_patterns = Array[ExtResource("9_vtaks")]([ExtResource("10_kvpfn"), ExtResource("15_pl11u"), ExtResource("16_bhx41"), ExtResource("18_bhx41"), ExtResource("19_sww3w"), ExtResource("20_suyxu"), ExtResource("21_suyxu")])
 enemy_spawner = NodePath("../EnemySpawner")
 build_applier = NodePath("../BuildApplier")
+win_screen = NodePath("../CanvasLayer/WinScreen")
 
 [node name="BuildApplier" parent="." unique_id=1250477952 node_paths=PackedStringArray("player", "rope", "anchor") instance=ExtResource("12_kvuet")]
 process_mode = 3
@@ -265,3 +270,4 @@ card_count = 3
 
 [connection signal="screen_exited" from="Arena/Player/VisibleOnScreenNotifier2D" to="Arena/Player/VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]
+[connection signal="win" from="WaveManager" to="WaveManager" method="_on_win"]

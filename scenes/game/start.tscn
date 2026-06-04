@@ -15,8 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://d2vmnorl60evo" path="res://assets/images/player/player_idle.png" id="7_tw6uv"]
 [ext_resource type="Texture2D" uid="uid://bjn27iqngc23i" path="res://assets/images/player/player_run.png" id="8_kj5nw"]
 [ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/movement/rope_dash_movement.tscn" id="9_xaw65"]
+[ext_resource type="Texture2D" uid="uid://dyo8h7vd6o00r" path="res://assets/images/ui/quit_game.png" id="10_0qnm6"]
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="10_dmw7s"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="11_b5cym"]
+[ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="11_fbgn1"]
 [ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="12_smf6k"]
 [ext_resource type="Script" uid="uid://ck3k2lind41v4" path="res://scripts/game/player/player_animator.gd" id="13_l78sk"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/game/rope.tscn" id="14_0qnm6"]
@@ -48,6 +50,66 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/QuitButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(113, 570.005)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guide/MessageGuide2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(253, 437)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Guide/MessageGuide:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(670, 178)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Guide/KeybindsGuide2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(666, 277.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guide/KeybindsGuide:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 108.815)]
+}
 
 [sub_resource type="Animation" id="Animation_smf6k"]
 resource_name = "start"
@@ -62,6 +124,66 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [0.0, 6.283185307179586]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/QuitButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(113, 570.005), Vector2(113, 498.495)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Guide/MessageGuide2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(253, 545.16), Vector2(253, 437.17)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Guide/MessageGuide:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(981.755, 178), Vector2(661.855, 178)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Guide/KeybindsGuide2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(980.765, 277.5), Vector2(660.755, 277.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Guide/KeybindsGuide:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-404.86, 108.815), Vector2(20.445, 108.815)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l78sk"]
@@ -80,6 +202,9 @@ gradient = SubResource("Gradient_v2yb1")
 shader = ExtResource("5_ffns3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0qnm6"]
+shader = ExtResource("5_ffns3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2wurs"]
 shader = ExtResource("5_ffns3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gxtfn"]
@@ -242,10 +367,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -206.0
-offset_right = -344.0
-offset_bottom = -113.0
+offset_left = -469.0
+offset_top = -161.185
+offset_right = -338.99905
+offset_bottom = -57.184998
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
@@ -263,7 +388,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 186.0
 offset_top = 7.5
-offset_right = 248.0
+offset_right = 248.00037
 offset_bottom = 36.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -283,7 +408,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 190.0
 offset_top = -92.0
-offset_right = 248.0
+offset_right = 248.00061
 offset_bottom = -75.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -304,7 +429,7 @@ anchor_bottom = 0.5
 offset_left = -227.0
 offset_top = 167.0
 offset_right = -77.0
-offset_bottom = 174.0
+offset_bottom = 174.00006
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
@@ -320,7 +445,7 @@ anchor_bottom = 0.5
 offset_left = -158.0
 offset_top = 100.0
 offset_right = 94.0
-offset_bottom = 254.0
+offset_bottom = 253.99994
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -416,6 +541,29 @@ text = "Wave: 9999"
 layout_mode = 2
 text = "Time Left: 9999"
 
+[node name="QuitButton" type="TextureButton" parent="CanvasLayer" unique_id=1326282256]
+modulate = Color(0.9217038, 0.9217038, 0.9217038, 1)
+material = SubResource("ShaderMaterial_2wurs")
+instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/glow_color = Color(0.14050013, 0.58456355, 0, 1)
+instance_shader_parameters/glow_intensity = 6.000000285
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.0
+offset_top = 300.005
+offset_right = -293.0
+offset_bottom = 312.005
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.770668, 3.770668)
+pivot_offset = Vector2(37, 6)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_0qnm6")
+script = ExtResource("11_fbgn1")
+
 [node name="Arena" type="Node2D" parent="." unique_id=1321402845]
 process_mode = 1
 
@@ -503,5 +651,7 @@ health = NodePath("../Health")
 [connection signal="button_down" from="Guide/Panel/PlayButton" to="Guide/Panel/PlayButton" method="_on_button_down"]
 [connection signal="button_up" from="Guide/Panel/PlayButton" to="Guide/Panel/PlayButton" method="_on_button_up"]
 [connection signal="pressed" from="Guide/Panel/PlayButton" to="Guide/Panel/PlayButton" method="_on_pressed"]
+[connection signal="button_down" from="CanvasLayer/QuitButton" to="CanvasLayer/QuitButton" method="_on_button_down"]
+[connection signal="button_up" from="CanvasLayer/QuitButton" to="CanvasLayer/QuitButton" method="_on_button_up"]
 [connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]
 [connection signal="died" from="Arena/SampleEnemy/Health" to="Arena/SampleEnemy" method="_on_health_died"]
