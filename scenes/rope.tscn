@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3q8pe12eka62" path="res://scripts/rope/rope.gd" id="1_icxtj"]
 [ext_resource type="PackedScene" uid="uid://ccvjkjhj41m7v" path="res://scenes/components/rope/rope_spring.tscn" id="2_ghbyf"]
+[ext_resource type="Texture2D" uid="uid://ywtxwqf6mr6i" path="res://assets/images/player/rope3.png" id="3_s222g"]
 [ext_resource type="Script" uid="uid://x2vg5dawig73" path="res://scripts/rope/rope_line.gd" id="3_vlfmi"]
 [ext_resource type="PackedScene" uid="uid://cddmklcnwb7mx" path="res://scenes/components/rope/rope_reel.tscn" id="4_l37dg"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="5_au3ri"]
@@ -18,6 +19,8 @@ spring_strength = 50.0
 damping = 10.0
 
 [node name="RopeLine" type="Line2D" parent="." unique_id=1691879384 node_paths=PackedStringArray("rope")]
+texture = ExtResource("3_s222g")
+texture_mode = 1
 script = ExtResource("3_vlfmi")
 rope = NodePath("..")
 

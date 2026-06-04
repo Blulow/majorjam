@@ -13,9 +13,13 @@
 [ext_resource type="Script" uid="uid://ie2sruuvnn2a" path="res://scripts/wave_manager.gd" id="8_gee14"]
 [ext_resource type="Script" uid="uid://evrwgbfuh4eb" path="res://scripts/wave_patterns/wave_pattern.gd" id="9_vtaks"]
 [ext_resource type="Resource" uid="uid://bdlckvp1g8po0" path="res://assets/resources/wave_patterns/wave_1.tres" id="10_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://ixogo4uabet7" path="res://assets/images/player/player_dash.png" id="10_wljb1"]
 [ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/game_menu.gd" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://d2vmnorl60evo" path="res://assets/images/player/player_idle.png" id="11_v2yb1"]
+[ext_resource type="Texture2D" uid="uid://bjn27iqngc23i" path="res://assets/images/player/player_run.png" id="12_js0lu"]
 [ext_resource type="PackedScene" uid="uid://clofs0ee5j5n6" path="res://scenes/components/build/build_applier.tscn" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://wlofpje2yo1e" path="res://scenes/components/build/build_manager.tscn" id="13_kvuet"]
+[ext_resource type="Script" uid="uid://ck3k2lind41v4" path="res://scripts/player_animator.gd" id="13_v2yb1"]
 [ext_resource type="Resource" uid="uid://dys8dicjfe5lm" path="res://assets/resources/wave_patterns/wave_2.tres" id="15_pl11u"]
 [ext_resource type="Resource" uid="uid://d2uxbwoccdu1o" path="res://assets/resources/wave_patterns/wave_3.tres" id="16_bhx41"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/build/build_card.gd" id="16_ssvqc"]
@@ -29,6 +33,33 @@
 [ext_resource type="Resource" uid="uid://6agwcpkd2mrt" path="res://assets/resources/wave_patterns/wave_7.tres" id="21_suyxu"]
 [ext_resource type="Resource" uid="uid://cew1aw0uhnd3i" path="res://assets/resources/build_cards/lightning.tres" id="22_37s47"]
 [ext_resource type="Script" uid="uid://tu3rlu0tc37u" path="res://scripts/player_stats_updater.gd" id="23_bt5mj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxtfn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_wljb1")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_v2yb1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_js0lu")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node2D" unique_id=1213886240]
 
@@ -105,7 +136,14 @@ build_card_scene = ExtResource("3_ca42v")
 process_mode = 1
 
 [node name="Player" parent="Arena" unique_id=477849407 instance=ExtResource("2_yqjtg")]
+z_index = 1
 position = Vector2(570, -71)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arena/Player" unique_id=825846924]
+scale = Vector2(1.0000025, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_gxtfn")
+animation = &"idle"
+autoplay = "idle"
 
 [node name="RopeDashMovement" parent="Arena/Player" unique_id=1115222186 node_paths=PackedStringArray("rope", "body_controller") instance=ExtResource("2_lbhrr")]
 rope = NodePath("../../Rope")
@@ -121,6 +159,12 @@ body_controller = NodePath("../BodyController")
 [node name="SpeedLimit" parent="Arena/Player" unique_id=235116759 node_paths=PackedStringArray("body_controller") instance=ExtResource("8_264po")]
 max_speed = 5000.0
 body_controller = NodePath("../BodyController")
+
+[node name="PlayerAnimator" type="Node2D" parent="Arena/Player" unique_id=1766996153 node_paths=PackedStringArray("sprite", "body_controller", "rope_dash_movement")]
+script = ExtResource("13_v2yb1")
+sprite = NodePath("../AnimatedSprite2D")
+body_controller = NodePath("../BodyController")
+rope_dash_movement = NodePath("../RopeDashMovement")
 
 [node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "build_applier", "arena") instance=ExtResource("4_lbhrr")]
 obj1 = NodePath("../Player")

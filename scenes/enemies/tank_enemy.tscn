@@ -18,7 +18,7 @@ gradient = SubResource("Gradient_g2els")
 size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md484"]
-size = Vector2(64, 64)
+size = Vector2(76, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(64, 64)
