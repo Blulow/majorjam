@@ -134,7 +134,7 @@ damage_amount = 20.0
 shape = SubResource("RectangleShape2D_md484")
 
 [node name="Health" parent="." unique_id=509010372 instance=ExtResource("6_8xbsu")]
-max_health = 50.0
+max_health = 30.0
 
 [node name="Hurtbox" parent="." unique_id=941001317 node_paths=PackedStringArray("health") instance=ExtResource("7_43ue2")]
 health = NodePath("../Health")

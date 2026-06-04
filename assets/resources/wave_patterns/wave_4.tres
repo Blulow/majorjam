@@ -48,10 +48,10 @@ target = NodePath("Arena/Player")
 spawn_pattern = SubResource("Resource_gvark")
 metadata/_custom_type_script = "uid://di2kw8ergkm2g"
 
-[sub_resource type="Resource" id="Resource_ri71r"]
+[sub_resource type="Resource" id="Resource_0x23j"]
 script = ExtResource("13_i3slw")
-health_modifier = 1.0
-damage_modifier = 1.0
+health_modifier = 0.5
+damage_modifier = 0.2
 metadata/_custom_type_script = "uid://bvhhsyy2ad1we"
 
 [resource]
@@ -61,5 +61,5 @@ duration = 25.0
 interval = 1.0
 enemy_cap = 100
 pool = Array[ExtResource("1_hyi26")]([SubResource("Resource_451o7"), SubResource("Resource_atp5m"), SubResource("Resource_gw7gy")])
-stat_modifier = SubResource("Resource_ri71r")
+stat_modifier = SubResource("Resource_0x23j")
 metadata/_custom_type_script = "uid://evrwgbfuh4eb"

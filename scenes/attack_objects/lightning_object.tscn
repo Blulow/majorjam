@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://de1h853ih2dss"]
 
 [ext_resource type="Script" uid="uid://212nfpc8uwcn" path="res://scripts/game/attack_objects/lightning_object.gd" id="1_cocqe"]
-
-[sub_resource type="Gradient" id="Gradient_1cibb"]
-colors = PackedColorArray(0, 0, 1, 1, 0, 0, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cocqe"]
-gradient = SubResource("Gradient_1cibb")
+[ext_resource type="Texture2D" uid="uid://cmo01ykj27cq2" path="res://assets/images/player/lightning.png" id="1_pbs8o"]
 
 [node name="LightningObject" type="Line2D" unique_id=1935989078]
-points = PackedVector2Array(0, 0)
-texture = SubResource("GradientTexture2D_cocqe")
+modulate = Color(3.0467367, 3.0467367, 3.0467367, 1)
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 0, 16)
+texture = ExtResource("1_pbs8o")
+texture_mode = 1
 script = ExtResource("1_cocqe")

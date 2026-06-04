@@ -50,8 +50,8 @@ metadata/_custom_type_script = "uid://di2kw8ergkm2g"
 
 [sub_resource type="Resource" id="Resource_old4a"]
 script = ExtResource("14_yktf5")
-health_modifier = 1.5
-damage_modifier = 1.5
+health_modifier = 0.7
+damage_modifier = 0.5
 metadata/_custom_type_script = "uid://bvhhsyy2ad1we"
 
 [resource]
