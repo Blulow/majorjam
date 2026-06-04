@@ -126,8 +126,8 @@ rect = Rect2(-41, -40, 82, 80)
 script = ExtResource("4_ioeaq")
 
 [node name="Hitbox" parent="." unique_id=504625708 instance=ExtResource("5_t1dfq")]
-collision_layer = 8
-collision_mask = 8
+collision_layer = 4
+collision_mask = 4
 damage_amount = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=329620180]
