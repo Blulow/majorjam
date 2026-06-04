@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://6p35ilxarqkx" path="res://scenes/components/movement/body_controller.tscn" id="3_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bv44pj8q4xpe3" path="res://scenes/game/rope.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://drnmq1qbgf1m6" path="res://scenes/components/movement/controlled_movement.tscn" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://pumbequscbpq" path="res://scenes/game/death_screen.tscn" id="5_6ehwc"]
 [ext_resource type="Shader" uid="uid://bkwuvynssdvkc" path="res://assets/shaders/edge_glow.gdshader" id="6_js0lu"]
 [ext_resource type="PackedScene" uid="uid://bx112x7jc0xs2" path="res://scenes/spawners/enemy_spawner.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://boayvolsjwh44" path="res://scenes/components/movement/speed_limit.tscn" id="8_264po"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://clofs0ee5j5n6" path="res://scenes/components/build/build_applier.tscn" id="12_kvuet"]
 [ext_resource type="PackedScene" uid="uid://wlofpje2yo1e" path="res://scenes/components/build/build_manager.tscn" id="13_kvuet"]
 [ext_resource type="Script" uid="uid://ck3k2lind41v4" path="res://scripts/game/player/player_animator.gd" id="13_v2yb1"]
+[ext_resource type="Script" uid="uid://by50mtx7qol7j" path="res://scripts/game/player/player_died.gd" id="15_0gkf7"]
 [ext_resource type="Resource" uid="uid://dys8dicjfe5lm" path="res://assets/resources/wave_patterns/wave_2.tres" id="15_pl11u"]
 [ext_resource type="Resource" uid="uid://d2uxbwoccdu1o" path="res://assets/resources/wave_patterns/wave_3.tres" id="16_bhx41"]
 [ext_resource type="Script" uid="uid://i1l2dnvixscx" path="res://scripts/game/build/build_card.gd" id="16_ssvqc"]
@@ -171,6 +173,9 @@ text = "Time Left: 9999"
 [node name="BuildBuilder" parent="CanvasLayer" unique_id=991174832 instance=ExtResource("2_ir15t")]
 build_card_scene = ExtResource("3_ca42v")
 
+[node name="DeathScreen" parent="CanvasLayer" unique_id=79664694 instance=ExtResource("5_6ehwc")]
+visible = false
+
 [node name="Arena" type="Node2D" parent="." unique_id=1321402845]
 process_mode = 1
 
@@ -209,6 +214,12 @@ script = ExtResource("13_v2yb1")
 sprite = NodePath("../AnimatedSprite2D")
 body_controller = NodePath("../BodyController")
 rope_dash_movement = NodePath("../RopeDashMovement")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Arena/Player" unique_id=184688399 node_paths=PackedStringArray("death_screen", "anchor")]
+rect = Rect2(-26, -43, 52, 86)
+script = ExtResource("15_0gkf7")
+death_screen = NodePath("../../../CanvasLayer/DeathScreen")
+anchor = NodePath("../../Anchor")
 
 [node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "build_applier", "arena") instance=ExtResource("4_lbhrr")]
 obj1 = NodePath("../Player")
@@ -252,4 +263,5 @@ build_applier = NodePath("../BuildApplier")
 registered_build_cards = Array[ExtResource("16_ssvqc")]([ExtResource("17_264po"), ExtResource("18_1kice"), ExtResource("20_5newe"), ExtResource("21_37s47"), ExtResource("22_37s47")])
 card_count = 3
 
+[connection signal="screen_exited" from="Arena/Player/VisibleOnScreenNotifier2D" to="Arena/Player/VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]

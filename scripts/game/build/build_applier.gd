@@ -10,9 +10,10 @@ func apply_build(_build: Build):
 	build = _build
 	for effect: BuildEffect in build.effects:
 		var context: CombatContext = CombatContext.new()
-		context.player = player
-		context.rope = rope
-		context.anchor = anchor
+		if player and rope and anchor:
+			context.player = player
+			context.rope = rope
+			context.anchor = anchor
 		effect.on_added(context)
 
 func on_hit(context: CombatContext):

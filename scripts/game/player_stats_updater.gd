@@ -11,11 +11,12 @@ func _ready() -> void:
 	anchor.hit.connect(_on_hit)
 
 func _on_wave_start(wave_n: int):
-	PlayerStats.WAVE_N = wave_n
-	PlayerStats.HEALTH = anchor.get_node("Health").health
-	PlayerStats.DAMAGE = rope.get_node("Hitbox").damage_amount
-	PlayerStats.MAX_SPEED = player.get_node("SpeedLimit").max_speed
-	PlayerStats.DASH_SPEED = player.get_node("RopeDashMovement").rope_dash_speed
+	if anchor and rope and player:
+		PlayerStats.WAVE_N = wave_n
+		PlayerStats.HEALTH = anchor.get_node("Health").health
+		PlayerStats.DAMAGE = rope.get_node("Hitbox").damage_amount
+		PlayerStats.MAX_SPEED = player.get_node("SpeedLimit").max_speed
+		PlayerStats.DASH_SPEED = player.get_node("RopeDashMovement").rope_dash_speed
 
 func _on_hit():
 	PlayerStats.HEALTH = anchor.get_node("Health").health

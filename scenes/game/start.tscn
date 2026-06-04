@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ixogo4uabet7" path="res://assets/images/player/player_dash.png" id="6_myded"]
 [ext_resource type="Texture2D" uid="uid://cmeq2hb3kae2g" path="res://assets/images/enemies/enemy.png" id="6_wtjof"]
 [ext_resource type="Texture2D" uid="uid://dbv27qsql3mxk" path="res://assets/images/ui/play2.png" id="7_b5cym"]
+[ext_resource type="Script" uid="uid://b6vm41orf6qcj" path="res://scripts/game/play_button.gd" id="7_smf6k"]
 [ext_resource type="Texture2D" uid="uid://d2vmnorl60evo" path="res://assets/images/player/player_idle.png" id="7_tw6uv"]
 [ext_resource type="Texture2D" uid="uid://bjn27iqngc23i" path="res://assets/images/player/player_run.png" id="8_kj5nw"]
 [ext_resource type="PackedScene" uid="uid://bqqj4v0fa56nd" path="res://scenes/components/movement/rope_dash_movement.tscn" id="9_xaw65"]
@@ -38,7 +39,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Guide/Panel/TextureButton:rotation")
+tracks/0/path = NodePath("Guide/Panel/PlayButton:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,7 +54,7 @@ resource_name = "start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Guide/Panel/TextureButton:rotation")
+tracks/0/path = NodePath("Guide/Panel/PlayButton:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -196,7 +197,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaw65"]
 size = Vector2(32, 32)
 
-[node name="Game" type="Node2D" unique_id=1213886240]
+[node name="Start" type="Node2D" unique_id=1213886240]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=3078971]
 zoom = Vector2(0.5, 0.5)
@@ -232,63 +233,98 @@ layer = -1
 
 [node name="KeybindsGuide" type="TextureRect" parent="Guide" unique_id=1539276212]
 material = SubResource("ShaderMaterial_emvee")
-instance_shader_parameters/alpha = 0.70000001043084
-instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/alpha = 0.60000000894072
+instance_shader_parameters/border_thickness = 0.50000002375
 instance_shader_parameters/glow_color = Color(1, 0.3019608, 0, 1)
 instance_shader_parameters/glow_intensity = 6.854000325565
-offset_left = 18.0
-offset_top = 77.0
-offset_right = 130.0
-offset_bottom = 189.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -206.0
+offset_right = -344.0
+offset_bottom = -113.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("3_ex6di")
 
 [node name="KeybindsGuide2" type="TextureRect" parent="Guide" unique_id=1816907452]
 material = SubResource("ShaderMaterial_emvee")
-instance_shader_parameters/alpha = 0.70000001043084
-instance_shader_parameters/border_thickness = 1.0000000475
-instance_shader_parameters/glow_intensity = 6.000000285
-offset_left = 685.0
-offset_top = 285.0
-offset_right = 747.0
-offset_bottom = 305.0
+instance_shader_parameters/alpha = 0.60000000894072
+instance_shader_parameters/border_thickness = 0.50000002375
+instance_shader_parameters/glow_intensity = 6.854000325565
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 186.0
+offset_top = 7.5
+offset_right = 248.0
+offset_bottom = 36.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("4_7ndx4")
 
 [node name="MessageGuide" type="TextureRect" parent="Guide" unique_id=211973419]
 material = SubResource("ShaderMaterial_emvee")
-instance_shader_parameters/alpha = 0.5000000074506
-instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/alpha = 0.60000000894072
+instance_shader_parameters/border_thickness = 0.50000002375
 instance_shader_parameters/glow_color = Color(1, 0.515625, 0, 1)
-instance_shader_parameters/glow_intensity = 6.000000285
-offset_left = 658.0
-offset_top = 197.0
-offset_right = 719.0
-offset_bottom = 209.0
+instance_shader_parameters/glow_intensity = 6.854000325565
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 190.0
+offset_top = -92.0
+offset_right = 248.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("4_emvee")
 
 [node name="MessageGuide2" type="TextureRect" parent="Guide" unique_id=190797832]
 material = SubResource("ShaderMaterial_emvee")
-instance_shader_parameters/alpha = 0.70000001043084
-instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/alpha = 0.60000000894072
+instance_shader_parameters/border_thickness = 0.50000002375
 instance_shader_parameters/glow_color = Color(0.3359375, 1, 0, 1)
-instance_shader_parameters/glow_intensity = 6.000000285
-offset_left = 231.0
-offset_top = 445.09872
-offset_right = 381.0
-offset_bottom = 452.09872
+instance_shader_parameters/glow_intensity = 6.854000325565
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.0
+offset_top = 167.0
+offset_right = -77.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(3, 3)
 texture = ExtResource("5_wtjof")
 
 [node name="Panel" type="Panel" parent="Guide" unique_id=361376186]
 modulate = Color(0.3203125, 0.3203125, 0.3203125, 1)
-offset_left = 302.0
-offset_top = 377.0
-offset_right = 554.0
-offset_bottom = 531.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = 100.0
+offset_right = 94.0
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TextureButton" type="TextureButton" parent="Guide/Panel" unique_id=2094210322]
+[node name="PlayButton" type="TextureButton" parent="Guide/Panel" unique_id=2094210322]
 modulate = Color(0.9217038, 0.9217038, 0.9217038, 1)
 material = SubResource("ShaderMaterial_0qnm6")
 instance_shader_parameters/glow_color = Color(0.14050013, 0.58456355, 0, 1)
@@ -306,12 +342,14 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.6213973, 1.6213973)
 pivot_offset = Vector2(42, 42)
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_dmw7s")
+script = ExtResource("7_smf6k")
 
 [node name="MessageGuide3" type="TextureRect" parent="Guide/Panel" unique_id=1765404291]
 material = SubResource("ShaderMaterial_emvee")
 instance_shader_parameters/alpha = 0.70000001043084
-instance_shader_parameters/border_thickness = 1.0000000475
+instance_shader_parameters/border_thickness = 0.50000002375
 instance_shader_parameters/glow_color = Color(0.3359375, 1, 0, 1)
 instance_shader_parameters/glow_intensity = 6.000000285
 layout_mode = 0
@@ -445,7 +483,7 @@ sprite = NodePath("AnimatedSprite2D")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Arena/SampleEnemy" unique_id=726241207]
 material = SubResource("ShaderMaterial_ffns3")
 instance_shader_parameters/alpha = 0.70000001043084
-instance_shader_parameters/glow_color = Color(0, 1, 0.015625, 1)
+instance_shader_parameters/glow_color = Color(0.1171875, 1, 0.95861816, 1)
 sprite_frames = SubResource("SpriteFrames_dmw7s")
 animation = &"death"
 autoplay = "default"
@@ -462,5 +500,8 @@ shape = SubResource("RectangleShape2D_xaw65")
 [node name="HealthBar" parent="Arena/SampleEnemy" unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("23_kj5nw")]
 health = NodePath("../Health")
 
+[connection signal="button_down" from="Guide/Panel/PlayButton" to="Guide/Panel/PlayButton" method="_on_button_down"]
+[connection signal="button_up" from="Guide/Panel/PlayButton" to="Guide/Panel/PlayButton" method="_on_button_up"]
+[connection signal="pressed" from="Guide/Panel/PlayButton" to="Guide/Panel/PlayButton" method="_on_pressed"]
 [connection signal="hit" from="Arena/Anchor" to="Arena/Anchor/AnchorLight" method="_on_anchor_hit"]
 [connection signal="died" from="Arena/SampleEnemy/Health" to="Arena/SampleEnemy" method="_on_health_died"]
