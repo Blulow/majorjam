@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="6_nenq2"]
 [ext_resource type="PackedScene" uid="uid://2meofxjo8ys4" path="res://scenes/components/health/hitbox.tscn" id="7_nenq2"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_n7575"]
+[ext_resource type="AudioStream" uid="uid://1nmkxxxk80kj" path="res://assets/sounds/sfx/enemy_hit.mp3" id="12_p7w77"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tihwb"]
 shader = ExtResource("2_y5th1")
@@ -93,12 +94,13 @@ size = Vector2(40, 40)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(32, 32)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "fly_towards_movement") groups=["enemy"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "fly_towards_movement", "audio") groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_4ra3w")
 sprite = NodePath("Sprite2D")
 fly_towards_movement = NodePath("FlyTowardsMovement")
+audio = NodePath("AudioStreamPlayer")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=624964368]
 material = SubResource("ShaderMaterial_tihwb")
@@ -142,6 +144,9 @@ shape = SubResource("RectangleShape2D_xwavj")
 
 [node name="HealthBar" parent="." unique_id=2015454371 node_paths=PackedStringArray("health") instance=ExtResource("8_n7575")]
 health = NodePath("../Health")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=60335175]
+stream = ExtResource("12_p7w77")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

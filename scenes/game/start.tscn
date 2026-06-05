@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bdkapwpvsr0r2"]
 
+[ext_resource type="AudioStream" uid="uid://bkttew1s44ikk" path="res://assets/sounds/sfx/woosh.mp3" id="1_1p1bq"]
 [ext_resource type="Script" uid="uid://b6qpgjdaufse4" path="res://scripts/game/parallax_background.gd" id="1_2wurs"]
 [ext_resource type="Script" uid="uid://ddx3257dph5nn" path="res://scripts/ui/game_menu.gd" id="1_ex6di"]
 [ext_resource type="Texture2D" uid="uid://cmayudj1fhvp" path="res://assets/images/background/background1.png" id="2_avqes"]
@@ -37,6 +38,8 @@
 [ext_resource type="PackedScene" uid="uid://7dwakhglsfay" path="res://scenes/components/health/health.tscn" id="21_kj5nw"]
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="22_xaw65"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="23_kj5nw"]
+[ext_resource type="AudioStream" uid="uid://ccvfpac7j4djh" path="res://assets/sounds/sfx/dash.mp3" id="29_qaru1"]
+[ext_resource type="Script" uid="uid://dd3kf7wp0djuj" path="res://scripts/game/player/player_sounds.gd" id="29_qedsw"]
 
 [sub_resource type="Environment" id="Environment_v2yb1"]
 background_mode = 3
@@ -407,6 +410,10 @@ environment = SubResource("Environment_v2yb1")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=771240105]
 libraries/ = SubResource("AnimationLibrary_l78sk")
 autoplay = &"start"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1812932668]
+stream = ExtResource("1_1p1bq")
+autoplay = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1788903923]
 layer = -2
@@ -806,6 +813,11 @@ body_controller = NodePath("../BodyController")
 script = ExtResource("13_l78sk")
 sprite = NodePath("../AnimatedSprite2D")
 body_controller = NodePath("../BodyController")
+rope_dash_movement = NodePath("../RopeDashMovement")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Arena/Player" unique_id=1144411414 node_paths=PackedStringArray("rope_dash_movement")]
+stream = ExtResource("29_qaru1")
+script = ExtResource("29_qedsw")
 rope_dash_movement = NodePath("../RopeDashMovement")
 
 [node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "arena") instance=ExtResource("14_0qnm6")]

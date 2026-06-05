@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b6vm41orf6qcj" path="res://scripts/game/play_button.gd" id="4_rx3po"]
 [ext_resource type="Texture2D" uid="uid://dyo8h7vd6o00r" path="res://assets/images/ui/quit_game.png" id="5_346ot"]
 [ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="5_suqxs"]
+[ext_resource type="AudioStream" uid="uid://bkttew1s44ikk" path="res://assets/sounds/sfx/woosh.mp3" id="8_4qaf7"]
 
 [sub_resource type="Animation" id="Animation_nt8uq"]
 length = 0.001
@@ -206,6 +207,10 @@ pivot_offset = Vector2(37, 6)
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_346ot")
 script = ExtResource("5_suqxs")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1943339776]
+stream = ExtResource("8_4qaf7")
+autoplay = true
 
 [connection signal="button_down" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_button_down"]
 [connection signal="button_up" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_button_up"]

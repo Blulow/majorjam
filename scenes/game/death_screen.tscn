@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b6dt3bm7uy2u8" path="res://scripts/game/quit_button.gd" id="5_aae5y"]
 [ext_resource type="Texture2D" uid="uid://dyo8h7vd6o00r" path="res://assets/images/ui/quit_game.png" id="5_st04b"]
 [ext_resource type="FontFile" uid="uid://buq328gvtjmum" path="res://assets/fonts/BluFont.ttf" id="7_553pn"]
+[ext_resource type="AudioStream" uid="uid://bkttew1s44ikk" path="res://assets/sounds/sfx/woosh.mp3" id="8_wprgk"]
 
 [sub_resource type="Animation" id="Animation_nt8uq"]
 length = 0.6333333
@@ -279,6 +280,10 @@ theme_override_fonts/font = ExtResource("7_553pn")
 theme_override_font_sizes/font_size = 170
 text = "9999"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=364116035]
+stream = ExtResource("8_wprgk")
+autoplay = true
 
 [connection signal="button_down" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_button_down"]
 [connection signal="button_up" from="Panel/PlayButton" to="Panel/PlayButton" method="_on_button_up"]

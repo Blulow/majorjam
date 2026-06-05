@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="7_4u6xj"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_ne8e8"]
 [ext_resource type="Script" uid="uid://bcllgr47i4ogb" path="res://scripts/game/enemies/stun_body.gd" id="9_t8vmy"]
+[ext_resource type="AudioStream" uid="uid://b4bl6b8yjgbsb" path="res://assets/sounds/sfx/player_slow.mp3" id="13_b7n2s"]
+[ext_resource type="AudioStream" uid="uid://1nmkxxxk80kj" path="res://assets/sounds/sfx/enemy_hit.mp3" id="14_4u6xj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b7n2s"]
 shader = ExtResource("2_ffg12")
@@ -88,12 +90,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_gskjr"]
 radius = 32.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "fly_towards_movement") groups=["enemy"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "fly_towards_movement", "audio") groups=["enemy"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_gskjr")
 sprite = NodePath("Sprite2D")
 fly_towards_movement = NodePath("FlyTowardsMovement")
+audio = NodePath("AudioStreamPlayer2")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1028662855]
 modulate = Color(1, 1, 1, 0.49019608)
@@ -145,9 +148,16 @@ offset_bottom = -39.0
 scale = Vector2(2, 4.92)
 health = NodePath("../Health")
 
-[node name="StunBody" type="Node2D" parent="." unique_id=2058302967 node_paths=PackedStringArray("hitbox")]
+[node name="StunBody" type="Node2D" parent="." unique_id=2058302967 node_paths=PackedStringArray("hitbox", "audio")]
 script = ExtResource("9_t8vmy")
 hitbox = NodePath("../Hitbox")
+audio = NodePath("../AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1204730210]
+stream = ExtResource("13_b7n2s")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=48188929]
+stream = ExtResource("14_4u6xj")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://db83kpteormgm" path="res://scenes/components/health/hurtbox.tscn" id="7_fgy4g"]
 [ext_resource type="Script" uid="uid://chbt8fbs7cgyd" path="res://scripts/game/enemies/suck_body.gd" id="7_mupkg"]
 [ext_resource type="PackedScene" uid="uid://17dooe5napow" path="res://scenes/components/ui/health_bar.tscn" id="8_ymnin"]
+[ext_resource type="AudioStream" uid="uid://1nmkxxxk80kj" path="res://assets/sounds/sfx/enemy_hit.mp3" id="11_k5cdd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_teiu3"]
 shader = ExtResource("2_k5cdd")
@@ -96,11 +97,12 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwavj"]
 size = Vector2(128, 128)
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite") groups=["enemy"]]
+[node name="Enemy" type="CharacterBody2D" unique_id=1084182467 node_paths=PackedStringArray("sprite", "audio") groups=["enemy"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_i0xfi")
 sprite = NodePath("Sprite2D")
+audio = NodePath("AudioStreamPlayer")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=129869482]
 material = SubResource("ShaderMaterial_teiu3")
@@ -142,6 +144,9 @@ health = NodePath("../Health")
 script = ExtResource("7_mupkg")
 enemy = NodePath("..")
 strength = 50.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1279564269]
+stream = ExtResource("11_k5cdd")
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="VisibleOnScreenNotifier2D" method="_on_screen_exited"]
 [connection signal="died" from="Health" to="." method="_on_health_died"]

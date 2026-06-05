@@ -11,6 +11,8 @@ var rope_dir: Vector2
 var dir: float = 1 #c: -1, a: 1
 var dash_dir: float
 
+signal dash
+
 func _ready() -> void:
 	anchor = rope.obj1 if rope.obj2 == body_controller.body else rope.obj2 if rope.obj1 == body_controller.body else null
 
@@ -20,6 +22,7 @@ func _process(delta: float) -> void:
 		
 		rope_dir = body_controller.body.global_position.direction_to(anchor.global_position)
 		dash_dir = (1 if rope_dir.y < 0 else -1) * Input.get_axis("left", "right")
+		dash.emit()
 		dashing = true
 	
 	if dashing:

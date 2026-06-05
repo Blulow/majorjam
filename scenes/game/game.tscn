@@ -46,6 +46,8 @@
 [ext_resource type="Resource" uid="uid://6agwcpkd2mrt" path="res://assets/resources/wave_patterns/wave_7.tres" id="21_suyxu"]
 [ext_resource type="Resource" uid="uid://cew1aw0uhnd3i" path="res://assets/resources/build_cards/lightning.tres" id="22_37s47"]
 [ext_resource type="Script" uid="uid://tu3rlu0tc37u" path="res://scripts/game/player_stats_updater.gd" id="23_bt5mj"]
+[ext_resource type="AudioStream" uid="uid://ccvfpac7j4djh" path="res://assets/sounds/sfx/dash.mp3" id="26_35t1a"]
+[ext_resource type="Script" uid="uid://dd3kf7wp0djuj" path="res://scripts/game/player/player_sounds.gd" id="27_ye7x0"]
 
 [sub_resource type="Environment" id="Environment_v2yb1"]
 background_mode = 3
@@ -354,6 +356,11 @@ script = ExtResource("15_0gkf7")
 death_screen = NodePath("../../../CanvasLayer/DeathScreen")
 audio = NodePath("../../../AudioStreamPlayer")
 anchor = NodePath("../../Anchor")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Arena/Player" unique_id=500592741 node_paths=PackedStringArray("rope_dash_movement")]
+stream = ExtResource("26_35t1a")
+script = ExtResource("27_ye7x0")
+rope_dash_movement = NodePath("../RopeDashMovement")
 
 [node name="Rope" parent="Arena" unique_id=1075735704 node_paths=PackedStringArray("obj1", "obj2", "build_applier", "arena") instance=ExtResource("4_lbhrr")]
 obj1 = NodePath("../Player")
